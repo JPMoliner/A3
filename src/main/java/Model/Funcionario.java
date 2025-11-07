@@ -61,13 +61,14 @@ public class Funcionario extends Pessoa {
         SIMULANDO A ESTRUTURA EM CAMADAS PARA USAR COM BANCOS DE DADOS.
     
      */
+    /*
     // Retorna a Lista de Alunos(objetos)
     public ArrayList getMinhaListaFunc() {
         return FuncionarioDAO.MinhaListaFunc;
-    }
+    }*/
 
     // Cadastra novo aluno
-    public boolean InsertFuncionarioBD(String cargo, String CPF, int PIS, String nome, int idade) {
+    /*public boolean InsertFuncionarioBD(String cargo, String CPF, int PIS, String nome, int idade) {
         int id = this.maiorIDFunc() + 1;
         Funcionario objetoFunc = new Funcionario(cargo, CPF, PIS, id, nome, idade);
         FuncionarioDAO.MinhaListaFunc.add(objetoFunc);
@@ -110,5 +111,5 @@ public class Funcionario extends Pessoa {
     // retorna o maior ID da nossa base de dados
     public int maiorIDFunc(){
         return FuncionarioDAO.maiorIDFunc();
-    }   
+    }   */
 }

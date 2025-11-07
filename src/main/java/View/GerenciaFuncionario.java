@@ -1,5 +1,6 @@
 package View;
 
+import DAO.FuncionarioDAO;
 import Model.Funcionario;
 import java.util.*;
 import javax.swing.JOptionPane;
@@ -249,8 +250,8 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
             }
 
             // envia os dados para o Aluno processar
-            if (this.objfunc.UpdateFuncBD(cargo, CPF, PIS, id, nome, idade)) {
-
+            
+            if (FuncionarioDAO.updateFuncionario(cargo, CPF, PIS, nome, idade, id)) {
                 // limpa os campos
                 this.c_nome.setText("");
                 this.c_idade.setText("");
@@ -260,7 +261,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Funcionario Alterado com Sucesso!");
 
             }
-            System.out.println(this.objfunc.getMinhaListaFunc().toString());
+            System.out.println(FuncionarioDAO.getFuncionarios().toString());
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
@@ -306,7 +307,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
             if (resposta_usuario == 0) {// clicou em SIM
 
                 // envia os dados para o Aluno processar
-                if (this.objfunc.DeleteFuncBD(id)) {
+                if (FuncionarioDAO.removeFuncionarioByID(id)) {
 
                     // limpa os campos
                     this.c_nome.setText("");
@@ -320,7 +321,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
 
             }
 
-            System.out.println(this.objfunc.getMinhaListaFunc().toString());
+            System.out.println(FuncionarioDAO.getFuncionarios().toString());
 
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
@@ -344,7 +345,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
         modelo.setNumRows(0);
 
         ArrayList<Funcionario> minhalistafunc = new ArrayList<>();
-        minhalistafunc = objfunc.getMinhaListaFunc();
+        minhalistafunc = FuncionarioDAO.getFuncionarios();
 
         for (Funcionario a : minhalistafunc) {
             modelo.addRow(new Object[]{

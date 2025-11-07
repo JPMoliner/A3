@@ -10,11 +10,8 @@ public class Principal {
     public static void main(String[] args) {
         Database.createConnection();
         AlunoDAO.InitializeDB();
-        /*AlunoDAO.addALuno("CDC", 4, "roberto", 55, "5353535353");
-        for (Aluno aluno : AlunoDAO.getAlunos()){
-            System.out.println(aluno.getNome() + " " + aluno.getId());
-        }
-        */
+        FuncionarioDAO.InitializeDB();
+
         
         TelaPrincipal objetotela = new TelaPrincipal();
         objetotela.setVisible(true);

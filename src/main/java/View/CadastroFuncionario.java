@@ -4,6 +4,7 @@ import Model.Funcionario;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import DAO.*;
 
 public class CadastroFuncionario extends javax.swing.JFrame {
 
@@ -205,7 +206,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
             
             // envia os dados para o Controlador cadastrar
-            if (this.objfunc.InsertFuncionarioBD(cargo, CPF, PIS, nome, idade)) {
+            
+            if (FuncionarioDAO.addFuncionario(cargo, CPF, PIS, nome, idade)) {
                 JOptionPane.showMessageDialog(rootPane, "Funcionario Cadastrado com Sucesso!");
 
                 // limpa campos da interface
@@ -217,7 +219,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
             }
 
-            System.out.println(this.objfunc.getMinhaListaFunc().toString());
+            System.out.println(FuncionarioDAO.getFuncionarios().toString());
 
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
