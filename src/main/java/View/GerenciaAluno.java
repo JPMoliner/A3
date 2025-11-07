@@ -4,6 +4,7 @@ import Model.Aluno;
 import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import DAO.*;
 
 public class GerenciaAluno extends javax.swing.JFrame {
 
@@ -254,7 +255,7 @@ public class GerenciaAluno extends javax.swing.JFrame {
 
             
             // envia os dados para o Aluno processar
-            if (this.objaluno.UpdateAlunoBD(curso, fase, id, nome, idade, CPF)) {
+            if (AlunoDAO.updateAluno(curso, fase, nome, idade, CPF, id)) {
 
                 // limpa os campos
                 this.c_nome.setText("");
@@ -265,7 +266,7 @@ public class GerenciaAluno extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Aluno Alterado com Sucesso!");
 
             }
-            System.out.println(this.objaluno.getMinhaLista().toString());
+            System.out.println(AlunoDAO.getAlunos().toString());
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
@@ -312,7 +313,7 @@ public class GerenciaAluno extends javax.swing.JFrame {
             if (resposta_usuario == 0) {// clicou em SIM
 
                 // envia os dados para o Aluno processar
-                if (this.objaluno.DeleteAlunoBD(id)) {
+                if (AlunoDAO.removeAlunoByID(id)) {
 
                     // limpa os campos
                     this.c_nome.setText("");
@@ -326,7 +327,7 @@ public class GerenciaAluno extends javax.swing.JFrame {
 
             }
 
-            System.out.println(this.objaluno.getMinhaLista().toString());
+            System.out.println(AlunoDAO.getAlunos().toString());
 
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
@@ -350,7 +351,7 @@ public class GerenciaAluno extends javax.swing.JFrame {
         modelo.setNumRows(0);
 
         ArrayList<Aluno> minhalista = new ArrayList<>();
-        minhalista = objaluno.getMinhaLista();
+        minhalista = AlunoDAO.getAlunos();
 
         for (Aluno a : minhalista) {
             modelo.addRow(new Object[]{

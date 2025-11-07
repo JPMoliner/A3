@@ -15,10 +15,10 @@ public class AlunoDAO {
         Database.executeCommand("CREATE TABLE IF NOT EXISTS Alunos (id INTEGER PRIMARY KEY, nome TEXT, curso TEXT, fase INTEGER, idade INTEGER, cpf TEXT)");
     }
 
-    public static void addALuno(String curso, int fase, String nome, int idade, String cpf) {
+    public static boolean addAluno(String curso, int fase, String nome, int idade, String cpf) {
         PreparedStatement statement = Database.getPreparedStatement("INSERT INTO Alunos (nome, curso, fase, idade, cpf) VALUES (?, ?, ?, ?, ?)");
         if (statement == null) {
-            return;
+            return false;
         }
 
         try {
@@ -31,8 +31,9 @@ public class AlunoDAO {
             statement.close();
         } catch (SQLException e) {
             System.err.println("Erro ao adicionar aluno na database: " + e.getMessage());
+            return false;
         }
-
+        return true;
     }
     
     public static ArrayList<Aluno> getAlunos(){
@@ -58,10 +59,61 @@ public class AlunoDAO {
         
         return alunos;
     };
+    
+    public static boolean removeAlunoByID(int id){
+        Database.executeCommand("DELETE FROM Alunos WHERE id = " + id);
+        return true;
+    }
 
-    public static ArrayList<Aluno> MinhaLista = new ArrayList<Aluno>();
+    
+    public static boolean updateAluno(String curso, int fase, String nome, int idade, String cpf, int id){
+        PreparedStatement statement = Database.getPreparedStatement("UPDATE Alunos SET curso = ?, fase = ?, nome = ?, idade = ?, cpf = ? WHERE id = ?");
+        if (statement == null) {
+            return false;
+        }
+        try {
+            statement.setString(1, curso);
+            statement.setInt(2, fase);
+            statement.setString(3, nome);
+            statement.setInt(4, idade);
+            statement.setString(5, cpf);
+            statement.setInt(6, id);
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException e) {
+            System.err.println("Erro ao dar update no aluno: " + e.getMessage());
+            return false;
+        }
+        return true;
+    }
+    
+    public static Aluno getAlunoByID(int id){
+        ResultSet result = Database.executeQuery("SELECT * FROM Alunos WHERE id = " + id);
+        if (result == null)
+            return null;
+        try {
+            if (result.next()) {
+                return new Aluno(
+                    result.getString("curso"),
+                    result.getInt("fase"),
+                    result.getInt("id"),
+                    result.getString("nome"),
+                    result.getInt("idade"),
+                    result.getString("cpf")
+                );
+            } else {
+                System.out.println("Nenhum aluno encontrada com ID " + id);
+                return null;
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao pegar aluno: " + e.getMessage());
+            return null;
+        }
+    }
+    
+    //public static ArrayList<Aluno> MinhaLista = new ArrayList<Aluno>();
 
-    public static int maiorID() {
+    /*public static int maiorID() {
 
         int maiorID = 0;
         for (int i = 0; i < MinhaLista.size(); i++) {
@@ -71,6 +123,6 @@ public class AlunoDAO {
         }
         return maiorID;
 
-    }
+    }*/
 
 }

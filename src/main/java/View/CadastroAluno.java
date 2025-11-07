@@ -1,6 +1,7 @@
 package View;
 
 import Model.Aluno;
+import DAO.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -211,7 +212,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
 
             // envia os dados para o Controlador cadastrar
-            if (this.objaluno.InsertAlunoBD(curso, fase, nome, idade, CPF)) {
+            if (AlunoDAO.addAluno(curso, fase, nome, idade, CPF)) {
                 JOptionPane.showMessageDialog(rootPane, "Aluno Cadastrado com Sucesso!");
 
                 // limpa campos da interface
@@ -223,7 +224,7 @@ public class CadastroAluno extends javax.swing.JFrame {
 
             }
 
-            System.out.println(this.objaluno.getMinhaLista().toString());
+            System.out.println(AlunoDAO.getAlunos().toString());
 
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());

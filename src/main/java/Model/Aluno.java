@@ -61,35 +61,41 @@ public class Aluno extends Pessoa {
     
      */
     // Retorna a Lista de Alunos(objetos)
+    
+    /*
     public ArrayList getMinhaLista() {
         return AlunoDAO.MinhaLista;
-    }
+    }*/
 
     // Cadastra novo aluno
+    /*
     public boolean InsertAlunoBD(String curso, int fase, String nome, int idade, String CPF) {
         int id = this.maiorID() + 1;
         Aluno objeto = new Aluno(curso, fase, id, nome, idade, CPF);
         AlunoDAO.MinhaLista.add(objeto);
         return true;
 
-    }
+    }*/
 
     // Deleta um aluno espec�fico pelo seu campo ID
-    public boolean DeleteAlunoBD(int id) {
+    /*public boolean DeleteAlunoBD(int id) {
         int indice = this.procuraIndice(id);
         AlunoDAO.MinhaLista.remove(indice);
         return true;
-    }
+    }*/
 
     // Edita um aluno espec�fico pelo seu campo ID
+    /*
     public boolean UpdateAlunoBD(String curso, int fase, int id, String nome, int idade, String CPF) {
         Aluno objeto = new Aluno(curso, fase, id, nome, idade, CPF);
         int indice = this.procuraIndice(id);
         AlunoDAO.MinhaLista.set(indice, objeto);
         return true;
     }
+    */
 
     // procura o INDICE de objeto da MinhaLista que contem o ID enviado.
+    /*
     private int procuraIndice(int id) {
         int indice = -1;
         for (int i = 0; i < AlunoDAO.MinhaLista.size(); i++) {
@@ -98,16 +104,17 @@ public class Aluno extends Pessoa {
             }
         }
         return indice;
-    }
+    }*/
 
     // carrega dados de um aluno espec�fico pelo seu ID
-    public Aluno carregaAluno(int id) {
+    /*public Aluno carregaAluno(int id) {
         int indice = this.procuraIndice(id);
         return AlunoDAO.MinhaLista.get(indice);
-    }
+    }*/
     
     // retorna o maior ID da nossa base de dados
+    /* 
     public int maiorID(){
         return AlunoDAO.maiorID();
-    }   
+    }*/   
 }
