@@ -17,8 +17,8 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-swing-junit-jupiter</artifactId>
-            <version>3.18.0</version>
-            <scope>test</scope>
+            <version>3.17.1</version>
+            <scope>test</scope> 
         </dependency>      
         <dependency>
             <groupId>org.junit.jupiter</groupId>
