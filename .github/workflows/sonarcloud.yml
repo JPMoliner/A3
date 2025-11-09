@@ -1,10 +1,15 @@
 name: SonarCloud
 
 on:
+  workflow_dispatch:           
   push:
     branches: [ "main" ]
   pull_request:
     types: [opened, synchronize, reopened]
+
+permissions:                    
+  contents: read
+  pull-requests: write
 
 jobs:
   analyze:
@@ -25,14 +30,24 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('pom.xml') }}
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build & Test (gera jacoco.xml)
         run: mvn -B -DskipTests=false verify
 
-      - name: SonarCloud Scan
+      - name: SonarCloud Scan (aguarda Quality Gate)
         uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          args: -Dsonar.qualitygate.wait=true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-          SONAR_TOKEN:  ${{ secrets.SONAR_TOKEN }}   
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN:  ${{ secrets.SONAR_TOKEN }}
+
+      # opcional: baixar o relatório HTML da cobertura
+      - name: Upload JaCoCo HTML
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-site
+          path: target/site/jacoco/
