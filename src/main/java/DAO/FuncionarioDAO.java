@@ -3,12 +3,12 @@
  */
 package DAO;
 
-import Model.Aluno;
+
 import Model.Funcionario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
 
 public class FuncionarioDAO {
     
@@ -39,7 +39,7 @@ public class FuncionarioDAO {
     }
     
     public static ArrayList<Funcionario> getFuncionarios(){
-        ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
         ResultSet result = Database.executeQuery("SELECT * FROM Funcionarios");
         if (result == null)
             return funcionarios;

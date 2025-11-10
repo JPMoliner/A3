@@ -1,9 +1,7 @@
 package View;
 
 import Model.Aluno;
-import DAO.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import DAO.AlunoDAO;
 import javax.swing.JOptionPane;
 
 public class CadastroAluno extends javax.swing.JFrame {

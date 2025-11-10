@@ -1,7 +1,7 @@
 package View;
 
 import Model.Aluno;
-import java.util.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DAO.*;

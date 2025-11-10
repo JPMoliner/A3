@@ -1,10 +1,8 @@
 package View;
 
 import Model.Funcionario;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import DAO.*;
+import DAO.FuncionarioDAO;
 
 public class CadastroFuncionario extends javax.swing.JFrame {
 

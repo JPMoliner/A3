@@ -1,7 +1,5 @@
 package Model;
 
-import java.util.*;
-import DAO.AlunoDAO;
 
 public class Aluno extends Pessoa {
 

@@ -4,7 +4,7 @@
 package DAO;
 
 import Model.Aluno;
-import java.util.*;
+import java.util.ArrayList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,7 +37,7 @@ public class AlunoDAO {
     }
     
     public static ArrayList<Aluno> getAlunos(){
-        ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+        ArrayList<Aluno> alunos = new ArrayList<>();
         ResultSet result = Database.executeQuery("SELECT * FROM Alunos");
         if (result == null)
             return alunos;

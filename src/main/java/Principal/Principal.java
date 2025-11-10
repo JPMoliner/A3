@@ -1,9 +1,12 @@
 package Principal;
 
 import View.TelaPrincipal;
-import javax.swing.*;
-import DAO.*;
-import Model.*;
+import DAO.Database;
+import DAO.AlunoDAO;
+import DAO.FuncionarioDAO;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 
 public class Principal {
 

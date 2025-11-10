@@ -2,7 +2,7 @@ package View;
 
 import DAO.FuncionarioDAO;
 import Model.Funcionario;
-import java.util.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
