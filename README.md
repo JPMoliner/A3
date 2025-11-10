@@ -2,7 +2,10 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JPMoliner_A3&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=JPMoliner_A3)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=JPMoliner_A3&metric=coverage)](https://sonarcloud.io/component_measures?id=JPMoliner_A3&metric=coverage)
 
-# A3 Qualidade de software.
+# A3 Gestão de qualidade de software.
+
+Qualidade de software do sistema de gerenciamento de alunos e professores.
+
 Utiliza 3 ambientes:
 - dev - Desenvolvimento
 - hmg - Homologação
@@ -16,3 +19,13 @@ Pipeline <br>
 - Utiliza o Apache Maven para a automatização da construção.<br>
 - A pasta test contêm os testes unitários do projeto utilizando JUnit. <br>
 - A cobertura do código é realizada através do JaCoCo.<br>
+
+# Desenvolvedores
+
+João Pedro Moliner de Carvalho
+
+Guilherme Menegotto Hoeller
+
+Gustavo Borges Leipnitz
+
+Gabriel Zamorano Blanco
