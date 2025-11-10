@@ -9,6 +9,7 @@ Utiliza 3 ambientes:
 - dev - Desenvolvimento
 - hmg - Homologação
 - prd - Produção
+<br>
 Pipeline
 - dev - Compilação
 - hmg - Compilação, Testes, Análise Código, Cobertura Código
