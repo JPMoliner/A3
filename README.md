@@ -15,5 +15,5 @@ Pipeline
 - prd - Empacotamento
 <br>
 - Utiliza o Apache Maven para a automatização da construção.<br>
-- A pasta test contêm os testes unitários do projeto utilizando JU
+- A pasta test contêm os testes unitários do projeto utilizando JUnit. <br>
 - A cobertura do código é realizada através do JaCoCo.<br>
