@@ -11,9 +11,9 @@ Utiliza 3 ambientes:
 - prd - Produção
 <br>
 Pipeline
-- dev - Compilação
-- hmg - Compilação, Testes, Análise Código, Cobertura Código
-- prd - Empacotamento
+- dev - Compilação <br>
+- hmg - Compilação, Testes, Análise Código, Cobertura Código <br>
+- prd - Empacotamento <br>
 <br>
 - Utiliza o Apache Maven para a automatização da construção.<br>
 - A pasta test contêm os testes unitários do projeto utilizando JUnit. <br>
