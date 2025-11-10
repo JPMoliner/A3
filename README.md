@@ -18,10 +18,10 @@ Professor: Osmar de Oliveira Braz Júnior
 
 ## Desenvolvedores
 
-João Pedro Moliner de Carvalho
+João Pedro Moliner de Carvalho - GitHub: @JPMoliner
 
-Guilherme Menegotto Hoeller
+Guilherme Menegotto Hoeller - GitHub: @Guilhermemhz
 
-Gustavo Borges Leipnitz
+Gustavo Borges Leipnitz - GitHub: @GustavoBorgesLeipnitz
 
-Gabriel Zamorano Blanco
+Gabriel Zamorano Blanco - GitHub: @gabriel-zamorano
