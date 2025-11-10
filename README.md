@@ -2,25 +2,21 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JPMoliner_A3&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=JPMoliner_A3)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=JPMoliner_A3&metric=coverage)](https://sonarcloud.io/component_measures?id=JPMoliner_A3&metric=coverage)
 
-# A3 Gestão de qualidade de software.
+# Sistema de Gerenciamento de Alunos e Professores Unisul
 
-Qualidade de software do sistema de gerenciamento de alunos e professores.
+Projeto: A3 - Gestão de Qualidade de Software
+Professor: Osmar de Oliveira Braz Júnior
 
-Utiliza 3 ambientes:
-- dev - Desenvolvimento
-- hmg - Homologação
-- prd - Produção
-<br>
-Pipeline <br>
-- dev - Compilação <br>
-- hmg - Compilação, Testes, Análise Código, Cobertura Código <br>
-- prd - Empacotamento <br>
-<br>
-- Utiliza o Apache Maven para a automatização da construção.<br>
-- A pasta test contêm os testes unitários do projeto utilizando JUnit. <br>
-- A cobertura do código é realizada através do JaCoCo.<br>
+## Tecnologias Utilizadas
 
-# Desenvolvedores
+- Java 17
+- Maven
+- Junit
+- SonarCloud
+- SQL Lite
+- Jacoco
+
+## Desenvolvedores
 
 João Pedro Moliner de Carvalho
 
