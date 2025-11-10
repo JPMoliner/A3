@@ -53,6 +53,6 @@ public class TesteAluno {
     void testFase(){
         Aluno aluno = new Aluno();
         aluno.setFase(5);
-        assertEquals(6,aluno.getFase());
+        assertEquals(5,aluno.getFase());
     }
 }
