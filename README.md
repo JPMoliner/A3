@@ -20,8 +20,8 @@ Professor: Osmar de Oliveira Braz Júnior
 
 João Pedro Moliner de Carvalho - GitHub: [@JPMoliner](https://github.com/JPMoliner)
 
-Guilherme Menegotto Hoeller - GitHub: @Guilhermemhz
+Guilherme Menegotto Hoeller - GitHub: [@Guilhermemhz](https://github.com/Guilhermemhz)
 
-Gustavo Borges Leipnitz - GitHub: @GustavoBorgesLeipnitz
+Gustavo Borges Leipnitz - GitHub: [@GustavoBorgesLeipnitz](https://github.com/GustavoBorgesLeipnitz)
 
-Gabriel Zamorano Blanco - GitHub: @gabriel-zamorano
+Gabriel Zamorano Blanco - GitHub: [gabriel-zamorano](https://github.com/gabriel-zamorano)
