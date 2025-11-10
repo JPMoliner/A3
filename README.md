@@ -4,7 +4,7 @@
 
 # Sistema de Gerenciamento de Alunos e Professores Unisul
 
-Projeto: A3 - Gestão de Qualidade de Software
+Projeto: A3 - Gestão de Qualidade de Software <br>
 Professor: Osmar de Oliveira Braz Júnior
 
 ## Tecnologias Utilizadas
