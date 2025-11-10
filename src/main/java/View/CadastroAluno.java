@@ -1,16 +1,12 @@
 package View;
 
-import Model.Aluno;
 import DAO.AlunoDAO;
 import javax.swing.JOptionPane;
 
 public class CadastroAluno extends javax.swing.JFrame {
 
-    private Aluno objaluno; // cria o v�nculo com o Aluno.java
-
     public CadastroAluno() {
         initComponents();
-        this.objaluno = new Aluno(); // carrega objeto vazio de aluno
     }
 
     /**
