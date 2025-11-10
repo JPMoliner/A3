@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-
+import Model.Aluno;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -42,5 +42,17 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 
 public class TesteAluno {
-
+    @Test
+    void testCPF(){
+        Aluno aluno = new Aluno();
+        aluno.setCPF("252525252525");
+        assertEquals("252525252525",aluno.getCPF());
+    }
+    
+    @Test
+    void testFase(){
+        Aluno aluno = new Aluno();
+        aluno.setFase(5);
+        assertEquals(6,aluno.getFase());
+    }
 }
