@@ -10,7 +10,12 @@
         <maven.compiler.source>22</maven.compiler.source>
         <maven.compiler.target>22</maven.compiler.target>
         <exec.mainClass>Principal.Principal</exec.mainClass>
-    </properties>
+        
+        <sonar.organization>jpmoliner</sonar.organization>
+        <sonar.projectKey>JPMoliner_A3</sonar.projectKey>
+        <sonar.projectName>A3</sonar.projectName>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        </properties>
     
     
     <dependencies>
