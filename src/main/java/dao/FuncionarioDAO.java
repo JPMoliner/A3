@@ -109,7 +109,7 @@ public class FuncionarioDAO {
                     result.getInt("idade")
                 );
             } else {
-                logger.info(String.format("Nenhum aluno encontrada com ID %d",  id));
+                logger.log(Level.WARNING, "Nenhum aluno encontrada com ID {0}",  id);
                 return null;
             }
         } catch (SQLException e) {
