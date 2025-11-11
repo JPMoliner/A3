@@ -1,6 +1,6 @@
 package view;
 
-import DAO.AlunoDAO;
+import dao.AlunoDAO;
 import javax.swing.JOptionPane;
 
 public class CadastroAluno extends javax.swing.JFrame {

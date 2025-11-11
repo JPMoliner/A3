@@ -1,10 +1,10 @@
 package view;
 
+import dao.AlunoDAO;
 import model.Aluno;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import DAO.*;
 
 public class GerenciaAluno extends javax.swing.JFrame {
 

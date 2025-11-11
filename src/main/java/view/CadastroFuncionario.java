@@ -2,7 +2,7 @@ package view;
 
 import model.Funcionario;
 import javax.swing.JOptionPane;
-import DAO.FuncionarioDAO;
+import dao.FuncionarioDAO;
 
 public class CadastroFuncionario extends javax.swing.JFrame {
 

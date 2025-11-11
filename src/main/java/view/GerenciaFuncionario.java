@@ -1,6 +1,6 @@
 package view;
 
-import DAO.FuncionarioDAO;
+import dao.FuncionarioDAO;
 import model.Funcionario;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

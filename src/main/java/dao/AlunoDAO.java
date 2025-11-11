@@ -1,7 +1,4 @@
-/*
- Aqui vamos simular a persist�ncia de dados.
- */
-package DAO;
+package dao;
 
 import model.Aluno;
 import java.util.ArrayList;
