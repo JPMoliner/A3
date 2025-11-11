@@ -11,6 +11,10 @@ import java.sql.SQLException;
 
 public class AlunoDAO {
 
+    private AlunoDAO(){
+        throw new IllegalStateException("Utility class");
+    };
+    
     public static void InitializeDB() {
         Database.executeCommand("CREATE TABLE IF NOT EXISTS Alunos (id INTEGER PRIMARY KEY, nome TEXT, curso TEXT, fase INTEGER, idade INTEGER, cpf TEXT)");
     }

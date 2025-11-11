@@ -12,6 +12,10 @@ import java.util.ArrayList;
 
 public class FuncionarioDAO {
     
+    private FuncionarioDAO(){
+        throw new IllegalStateException("Utility class");
+    }
+    
 
     public static void InitializeDB() {
         Database.executeCommand("CREATE TABLE IF NOT EXISTS Funcionarios (id INTEGER PRIMARY KEY, cargo TEXT, CPF TEXT, PIS INTEGER, nome TEXT, idade INTEGER)");

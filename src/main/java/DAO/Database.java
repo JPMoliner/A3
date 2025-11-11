@@ -13,6 +13,10 @@ import java.sql.PreparedStatement;
 
 public class Database {
 
+    private Database(){
+        throw new IllegalStateException("Utility class");
+    }
+    
     private static final String URL = "jdbc:sqlite:DataBase.db";
     private static Connection connection = null;
     private static Statement statement = null;
