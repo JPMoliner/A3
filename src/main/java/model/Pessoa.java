@@ -8,11 +8,11 @@ public abstract class Pessoa {
     private int idade;
     private String CPF;
 
-    // M�todo Construtor de Objeto Vazio
+    // Método Construtor de Objeto Vazio
     public Pessoa() {
     }
 
-    // M�todo Construtor de Objeto, inserindo dados
+    // Método Construtor de Objeto, inserindo dados
     public Pessoa(int id, String nome, int idade, String CPF) {
         this.id = id;
         this.nome = nome;
@@ -20,7 +20,7 @@ public abstract class Pessoa {
         this.CPF = CPF;
     }
 
-    // M�todos GET e SET
+    // Métodos GET e SET
     public int getId() {
         return id;
     }

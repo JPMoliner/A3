@@ -167,7 +167,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     private void b_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cadastrarActionPerformed
 
         try {
-            // recebendo e validando dados da interface gr�fica.
+            // recebendo e validando dados da interface gráfica.
             String nome = "";
             int idade = 0;
             String curso = "";

@@ -177,7 +177,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
 
             if (this.c_idadeFunc.getText().length() <= 0) {
-                throw new Mensagens("Idade deve ser n�mero e maior que zero.");
+                throw new Mensagens("Idade deve ser número e maior que zero.");
             } else {
                 idade = Integer.parseInt(this.c_idadeFunc.getText());
             }

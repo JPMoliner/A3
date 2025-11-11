@@ -7,24 +7,24 @@ public class Aluno extends Pessoa {
     private String curso;
     private int fase;
 
-    // M�todo Construtor de Objeto Vazio
+    // Método Construtor de Objeto Vazio
     public Aluno() {
     }
 
-    // M�todo Construtor de Objeto, inserindo dados
+    // Método Construtor de Objeto, inserindo dados
     public Aluno(String curso, int fase) {
         this.curso = curso;
         this.fase = fase;
     }
 
-    // M�todo Construtor usando tamb�m o construtor da SUPERCLASSE
+    // Método Construtor usando tamb�m o construtor da SUPERCLASSE
     public Aluno(String curso, int fase, int id, String nome, int idade, String CPF) {
         super(id, nome, idade, CPF);
         this.curso = curso;
         this.fase = fase;
     }
 
-    // M�todos GET e SET
+    // Métodos GET e SET
     public String getCurso() {
         return curso;
     }
@@ -41,7 +41,7 @@ public class Aluno extends Pessoa {
         this.fase = fase;
     }
 
-    // Override necess�rio para poder retornar os dados de Pessoa no toString para aluno.
+    // Override necessário para poder retornar os dados de Pessoa no toString para aluno.
     @Override
     public String toString() {
         return "\n ID: " + this.getId()

@@ -202,7 +202,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
     private void b_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_alterarActionPerformed
 
         try {
-            // recebendo e validando dados da interface gr�fica.
+            // recebendo e validando dados da interface gráfica.
             int id = 0;
             String nome = "";
             int idade = 0;
@@ -217,7 +217,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
             }
 
             if (this.c_idade.getText().length() <= 0) {
-                throw new Mensagens("Idade deve ser n�mero e maior que zero.");
+                throw new Mensagens("Idade deve ser número e maior que zero.");
             } else {
                 idade = Integer.parseInt(this.c_idade.getText());
             }
@@ -290,7 +290,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
 
     private void b_apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_apagarActionPerformed
         try {
-            // validando dados da interface gr�fica.
+            // validando dados da interface gráfica.
             int id = 0;
             if (this.jTableFuncionario.getSelectedRow() == -1) {
                 throw new Mensagens("Primeiro Selecione um Funcionario para APAGAR");
@@ -298,7 +298,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
                 id = Integer.parseInt(this.jTableFuncionario.getValueAt(this.jTableFuncionario.getSelectedRow(), 0).toString());
             }
 
-            // retorna 0 -> primeiro bot�o | 1 -> segundo bot�o | 2 -> terceiro bot�o
+            // retorna 0 -> primeiro botão | 1 -> segundo botão | 2 -> terceiro botão
             int resposta_usuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja APAGAR este Funcionario ?");
 
             if (resposta_usuario == 0) {// clicou em SIM
