@@ -1,4 +1,4 @@
-package Principal;
+package principal;
 
 import View.TelaPrincipal;
 import DAO.Database;
