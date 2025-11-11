@@ -1,6 +1,6 @@
 package View;
 
-import Model.Funcionario;
+import model.Funcionario;
 import javax.swing.JOptionPane;
 import DAO.FuncionarioDAO;
 

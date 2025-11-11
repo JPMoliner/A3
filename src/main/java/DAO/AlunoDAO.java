@@ -3,7 +3,7 @@
  */
 package DAO;
 
-import Model.Aluno;
+import model.Aluno;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

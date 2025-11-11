@@ -4,7 +4,7 @@
 package DAO;
 
 
-import Model.Funcionario;
+import model.Funcionario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
