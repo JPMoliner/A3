@@ -1,6 +1,6 @@
 package dao;
 
-
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Aluno;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class AlunoDAO {
     private static Logger logger = Logger.getLogger("AlunoDAO");
     
     private AlunoDAO(){
-        logger.info("Utility class");
+        logger.log(Level.WARNING, "Utility class");
     }
     
     public static void InitializeDB() {
@@ -35,7 +35,7 @@ public class AlunoDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao adicionar aluno na database: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao adicionar aluno na database: {0}", e.getMessage());
             return false;
         }
         return true;
@@ -59,7 +59,7 @@ public class AlunoDAO {
                 ));
             }
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao pegar alunos: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao pegar alunos: {0}", e.getMessage());
         }
         
         return alunos;
@@ -86,7 +86,7 @@ public class AlunoDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao dar update no aluno: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao dar update no aluno: {0}", e.getMessage());
             return false;
         }
         return true;
@@ -107,11 +107,11 @@ public class AlunoDAO {
                     result.getString("cpf")
                 );
             } else {
-                logger.info(String.format("Nenhum aluno encontrada com ID %d", id));
+                logger.log(Level.WARNING, "Nenhum aluno encontrada com ID {0}", id);
                 return null;
             }
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao pegar aluno: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao pegar aluno: {0}", e.getMessage());
             return null;
         }
     }

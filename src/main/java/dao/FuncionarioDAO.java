@@ -1,5 +1,7 @@
 package dao;
 
+
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Funcionario;
 import java.sql.PreparedStatement;
@@ -12,7 +14,7 @@ public class FuncionarioDAO {
     private static Logger logger = Logger.getLogger("FuncionarioDAO");
     
     private FuncionarioDAO(){
-        logger.info("Utility class");
+        logger.log(Level.WARNING, "Utility class");
     }
     
 
@@ -35,7 +37,7 @@ public class FuncionarioDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao adicionar funcionario na database: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao adicionar funcionario na database: {0}", e.getMessage());
             return false;
         }
         return true;
@@ -59,7 +61,7 @@ public class FuncionarioDAO {
                 ));
             }
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao pegar funcionario: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao pegar funcionario: {0}", e.getMessage());
         }
         
         return funcionarios;
@@ -86,7 +88,7 @@ public class FuncionarioDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao dar update no funcionario: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao dar update no funcionario: {0}", e.getMessage());
             return false;
         }
         return true;
@@ -111,7 +113,7 @@ public class FuncionarioDAO {
                 return null;
             }
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao pegar aluno: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao pegar aluno: {0}", e.getMessage());
             return null;
         }
     }

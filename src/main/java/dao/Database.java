@@ -1,6 +1,6 @@
 package dao;
 
-
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ public class Database {
     private static Logger logger = Logger.getLogger("Database");
      
     private Database(){
-        logger.info("Utility class");
+        logger.log(Level.WARNING, "Utility class");
     }
     
     private static final String URL = "jdbc:sqlite:DataBase.db";
@@ -26,7 +26,7 @@ public class Database {
             connection = DriverManager.getConnection(URL);
             statement = connection.createStatement();
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao conectar ao banco: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao conectar ao banco: {0}", e.getMessage());
         }
     }
 
@@ -41,7 +41,7 @@ public class Database {
         try {
             statement.execute(command);
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao executar comando: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao executar comando: {0}", e.getMessage());
         }
     }
 
@@ -52,7 +52,7 @@ public class Database {
         try {
             return statement.executeQuery(query);
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao executar query: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao executar query: {0}", e.getMessage());
         }
         return null;
     }
@@ -64,7 +64,7 @@ public class Database {
         try {
             return connection.prepareStatement(command);
         } catch (SQLException e) {
-            logger.info(String.format("Erro ao pegar o prepared statement: %s", e.getMessage()));
+            logger.log(Level.WARNING, "Erro ao pegar o prepared statement: {0}", e.getMessage());
         }
         return null;
     }
