@@ -8,11 +8,8 @@ import DAO.*;
 
 public class GerenciaAluno extends javax.swing.JFrame {
 
-    private Aluno objaluno; // cria o v�nculo com o objaluno
-
     public GerenciaAluno() {
         initComponents();
-        this.objaluno = new Aluno(); // carrega objaluno de aluno
         this.carregaTabela();
     }
 

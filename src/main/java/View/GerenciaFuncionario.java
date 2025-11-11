@@ -8,11 +8,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class GerenciaFuncionario extends javax.swing.JFrame {
 
-    private Funcionario objfunc; // cria o v�nculo com o objaluno
-
     public GerenciaFuncionario() {
         initComponents();
-        this.objfunc = new Funcionario(); // carrega objaluno de aluno
         this.carregaTabelaFunc();
     }
 
