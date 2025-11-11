@@ -1,5 +1,7 @@
 package dao;
 
+
+import java.util.logging.Logger;
 import model.Aluno;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
@@ -8,8 +10,10 @@ import java.sql.SQLException;
 
 public class AlunoDAO {
 
+    private static Logger logger = Logger.getLogger("AlunoDAO");
+    
     private AlunoDAO(){
-        throw new IllegalStateException("Utility class");
+        logger.info("Utility class");
     };
     
     public static void InitializeDB() {
@@ -31,7 +35,7 @@ public class AlunoDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            System.err.println("Erro ao adicionar aluno na database: " + e.getMessage());
+            logger.info("Erro ao adicionar aluno na database: " + e.getMessage());
             return false;
         }
         return true;
@@ -55,7 +59,7 @@ public class AlunoDAO {
                 ));
             }
         } catch (SQLException e) {
-            System.err.println("Erro ao pegar alunos: " + e.getMessage());
+            logger.info("Erro ao pegar alunos: " + e.getMessage());
         }
         
         return alunos;
@@ -82,7 +86,7 @@ public class AlunoDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            System.err.println("Erro ao dar update no aluno: " + e.getMessage());
+            logger.info("Erro ao dar update no aluno: " + e.getMessage());
             return false;
         }
         return true;
@@ -103,11 +107,11 @@ public class AlunoDAO {
                     result.getString("cpf")
                 );
             } else {
-                System.out.println("Nenhum aluno encontrada com ID " + id);
+                logger.info("Nenhum aluno encontrada com ID " + id);
                 return null;
             }
         } catch (SQLException e) {
-            System.err.println("Erro ao pegar aluno: " + e.getMessage());
+            logger.info("Erro ao pegar aluno: " + e.getMessage());
             return null;
         }
     }

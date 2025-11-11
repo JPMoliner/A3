@@ -1,6 +1,6 @@
 package dao;
 
-
+import java.util.logging.Logger;
 import model.Funcionario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,8 +9,10 @@ import java.util.ArrayList;
 
 public class FuncionarioDAO {
     
+    private static Logger logger = Logger.getLogger("Database");
+    
     private FuncionarioDAO(){
-        throw new IllegalStateException("Utility class");
+        logger.info("Utility class");
     }
     
 
@@ -33,7 +35,7 @@ public class FuncionarioDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            System.err.println("Erro ao adicionar funcionario na database: " + e.getMessage());
+            logger.info("Erro ao adicionar funcionario na database: " + e.getMessage());
             return false;
         }
         return true;
@@ -57,7 +59,7 @@ public class FuncionarioDAO {
                 ));
             }
         } catch (SQLException e) {
-            System.err.println("Erro ao pegar funcionario: " + e.getMessage());
+            logger.info("Erro ao pegar funcionario: " + e.getMessage());
         }
         
         return funcionarios;
@@ -84,7 +86,7 @@ public class FuncionarioDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            System.err.println("Erro ao dar update no funcionario: " + e.getMessage());
+            logger.info("Erro ao dar update no funcionario: " + e.getMessage());
             return false;
         }
         return true;
@@ -105,11 +107,11 @@ public class FuncionarioDAO {
                     result.getInt("idade")
                 );
             } else {
-                System.out.println("Nenhum aluno encontrada com ID " + id);
+                logger.info("Nenhum aluno encontrada com ID " + id);
                 return null;
             }
         } catch (SQLException e) {
-            System.err.println("Erro ao pegar aluno: " + e.getMessage());
+            logger.info("Erro ao pegar aluno: " + e.getMessage());
             return null;
         }
     }

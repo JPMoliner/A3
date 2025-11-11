@@ -1,5 +1,7 @@
 package dao;
 
+
+import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -9,8 +11,10 @@ import java.sql.PreparedStatement;
 
 public class Database {
 
+    private static Logger logger = Logger.getLogger("Database");
+     
     private Database(){
-        throw new IllegalStateException("Utility class");
+        logger.info("Utility class");
     }
     
     private static final String URL = "jdbc:sqlite:DataBase.db";
@@ -22,7 +26,7 @@ public class Database {
             connection = DriverManager.getConnection(URL);
             statement = connection.createStatement();
         } catch (SQLException e) {
-            System.err.println("Erro ao conectar ao banco: " + e.getMessage());
+            logger.info("Erro ao conectar ao banco: " + e.getMessage());
         }
     }
 
@@ -37,7 +41,7 @@ public class Database {
         try {
             statement.execute(command);
         } catch (SQLException e) {
-            System.err.println("Erro ao executar comando: " + e.getMessage());
+            logger.info("Erro ao executar comando: " + e.getMessage());
         }
     }
 
@@ -48,7 +52,7 @@ public class Database {
         try {
             return statement.executeQuery(query);
         } catch (SQLException e) {
-            System.err.println("Erro ao executar query: " + e.getMessage());
+            logger.info("Erro ao executar query: " + e.getMessage());
         }
         return null;
     }
@@ -60,7 +64,7 @@ public class Database {
         try {
             return connection.prepareStatement(command);
         } catch (SQLException e) {
-            System.err.println("Erro ao pegar o prepared statement: " + e.getMessage());
+            logger.info("Erro ao pegar o prepared statement: " + e.getMessage());
         }
         return null;
     }
