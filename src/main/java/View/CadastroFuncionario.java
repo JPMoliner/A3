@@ -6,11 +6,8 @@ import DAO.FuncionarioDAO;
 
 public class CadastroFuncionario extends javax.swing.JFrame {
 
-    private Funcionario objfunc; // cria o v�nculo com o Aluno.java
-
     public CadastroFuncionario() {
         initComponents();
-        this.objfunc = new Funcionario(); // carrega objeto vazio de aluno
     }
 
     /**
