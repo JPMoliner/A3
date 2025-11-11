@@ -1,6 +1,6 @@
 package dao;
 
-import java.util.logging.Level;
+
 import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,21 +14,35 @@ public class Database {
     private static Logger logger = Logger.getLogger("Database");
      
     private Database(){
-        logger.log(Level.WARNING, "Utility class");
+        logger.info("Utility class");
     }
     
-    private static final String URL = "jdbc:sqlite:DataBase.db";
+    // URL Padrão
+    private static final String DEFAULT_URL = "jdbc:sqlite:DataBase.db";
     private static Connection connection = null;
     private static Statement statement = null;
 
+    // Método original, agora chama o método sobrecarregado
     public static void createConnection() {
+        createConnection(DEFAULT_URL);
+    }
+
+    // Novo método sobrecarregado para testes (esta é a nossa modificação)
+    public static void createConnection(String url) {
         try {
-            connection = DriverManager.getConnection(URL);
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+            connection = DriverManager.getConnection(url);
             statement = connection.createStatement();
         } catch (SQLException e) {
-            logger.log(Level.WARNING, "Erro ao conectar ao banco: {0}", e.getMessage());
+            logger.info(String.format("Erro ao conectar ao banco: %s", e.getMessage()));
         }
     }
+
+    //
+    // AQUI ESTÃO OS MÉTODOS QUE FALTAVAM:
+    //
 
     public static Connection getConection() {
         return connection;
@@ -41,7 +55,7 @@ public class Database {
         try {
             statement.execute(command);
         } catch (SQLException e) {
-            logger.log(Level.WARNING, "Erro ao executar comando: {0}", e.getMessage());
+            logger.info(String.format("Erro ao executar comando: %s", e.getMessage()));
         }
     }
 
@@ -52,7 +66,7 @@ public class Database {
         try {
             return statement.executeQuery(query);
         } catch (SQLException e) {
-            logger.log(Level.WARNING, "Erro ao executar query: {0}", e.getMessage());
+            logger.info(String.format("Erro ao executar query: %s", e.getMessage()));
         }
         return null;
     }
@@ -64,7 +78,7 @@ public class Database {
         try {
             return connection.prepareStatement(command);
         } catch (SQLException e) {
-            logger.log(Level.WARNING, "Erro ao pegar o prepared statement: {0}", e.getMessage());
+            logger.info(String.format("Erro ao pegar o prepared statement: %s", e.getMessage()));
         }
         return null;
     }
