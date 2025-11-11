@@ -5,11 +5,11 @@ import model.Funcionario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.ArrayList; 
 
 public class FuncionarioDAO {
     
-    private static Logger logger = Logger.getLogger("Database");
+    private static Logger logger = Logger.getLogger("FuncionarioDAO");
     
     private FuncionarioDAO(){
         logger.info("Utility class");
@@ -35,7 +35,7 @@ public class FuncionarioDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            logger.info("Erro ao adicionar funcionario na database: " + e.getMessage());
+            logger.info(String.format("Erro ao adicionar funcionario na database: %s", e.getMessage()));
             return false;
         }
         return true;
@@ -59,7 +59,7 @@ public class FuncionarioDAO {
                 ));
             }
         } catch (SQLException e) {
-            logger.info("Erro ao pegar funcionario: " + e.getMessage());
+            logger.info(String.format("Erro ao pegar funcionario: %s", e.getMessage()));
         }
         
         return funcionarios;
@@ -86,7 +86,7 @@ public class FuncionarioDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            logger.info("Erro ao dar update no funcionario: " + e.getMessage());
+            logger.info(String.format("Erro ao dar update no funcionario: %s", e.getMessage()));
             return false;
         }
         return true;
@@ -107,11 +107,11 @@ public class FuncionarioDAO {
                     result.getInt("idade")
                 );
             } else {
-                logger.info("Nenhum aluno encontrada com ID " + id);
+                logger.info(String.format("Nenhum aluno encontrada com ID %d",  id));
                 return null;
             }
         } catch (SQLException e) {
-            logger.info("Erro ao pegar aluno: " + e.getMessage());
+            logger.info(String.format("Erro ao pegar aluno: %s", e.getMessage()));
             return null;
         }
     }

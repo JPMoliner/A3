@@ -26,7 +26,7 @@ public class Database {
             connection = DriverManager.getConnection(URL);
             statement = connection.createStatement();
         } catch (SQLException e) {
-            logger.info("Erro ao conectar ao banco: " + e.getMessage());
+            logger.info(String.format("Erro ao conectar ao banco: %s", e.getMessage()));
         }
     }
 
@@ -41,7 +41,7 @@ public class Database {
         try {
             statement.execute(command);
         } catch (SQLException e) {
-            logger.info("Erro ao executar comando: " + e.getMessage());
+            logger.info(String.format("Erro ao executar comando: %s", e.getMessage()));
         }
     }
 
@@ -52,7 +52,7 @@ public class Database {
         try {
             return statement.executeQuery(query);
         } catch (SQLException e) {
-            logger.info("Erro ao executar query: " + e.getMessage());
+            logger.info(String.format("Erro ao executar query: %s", e.getMessage()));
         }
         return null;
     }
@@ -64,7 +64,7 @@ public class Database {
         try {
             return connection.prepareStatement(command);
         } catch (SQLException e) {
-            logger.info("Erro ao pegar o prepared statement: " + e.getMessage());
+            logger.info(String.format("Erro ao pegar o prepared statement: %s", e.getMessage()));
         }
         return null;
     }

@@ -14,7 +14,7 @@ public class AlunoDAO {
     
     private AlunoDAO(){
         logger.info("Utility class");
-    };
+    }
     
     public static void InitializeDB() {
         Database.executeCommand("CREATE TABLE IF NOT EXISTS Alunos (id INTEGER PRIMARY KEY, nome TEXT, curso TEXT, fase INTEGER, idade INTEGER, cpf TEXT)");
@@ -35,7 +35,7 @@ public class AlunoDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            logger.info("Erro ao adicionar aluno na database: " + e.getMessage());
+            logger.info(String.format("Erro ao adicionar aluno na database: %s", e.getMessage()));
             return false;
         }
         return true;
@@ -59,11 +59,11 @@ public class AlunoDAO {
                 ));
             }
         } catch (SQLException e) {
-            logger.info("Erro ao pegar alunos: " + e.getMessage());
+            logger.info(String.format("Erro ao pegar alunos: %s", e.getMessage()));
         }
         
         return alunos;
-    };
+    }
     
     public static boolean removeAlunoByID(int id){
         Database.executeCommand("DELETE FROM Alunos WHERE id = " + id);
@@ -86,7 +86,7 @@ public class AlunoDAO {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
-            logger.info("Erro ao dar update no aluno: " + e.getMessage());
+            logger.info(String.format("Erro ao dar update no aluno: %s", e.getMessage()));
             return false;
         }
         return true;
@@ -107,11 +107,11 @@ public class AlunoDAO {
                     result.getString("cpf")
                 );
             } else {
-                logger.info("Nenhum aluno encontrada com ID " + id);
+                logger.info(String.format("Nenhum aluno encontrada com ID %d", id));
                 return null;
             }
         } catch (SQLException e) {
-            logger.info("Erro ao pegar aluno: " + e.getMessage());
+            logger.info(String.format("Erro ao pegar aluno: %s", e.getMessage()));
             return null;
         }
     }
