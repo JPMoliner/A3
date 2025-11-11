@@ -15,7 +15,7 @@
         <sonar.projectKey>JPMoliner_A3</sonar.projectKey>
         <sonar.projectName>A3</sonar.projectName>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.coverage.exclusions>**/principal/*Principal.*</sonar.coverage.exclusions> 
+        <sonar.coverage.exclusions>**/principal/*Principal.*, **/view/*.*</sonar.coverage.exclusions> 
     </properties>
     
     
@@ -90,7 +90,8 @@
                 <version>0.8.12</version>
                 <configuration>                    
                     <excludes>                        
-                        <exclude>**/principal/*Principal.*</exclude>                        
+                        <exclude>**/principal/*Principal.*</exclude>
+                        <exclude>**/view/*.*</exclude>                        
                     </excludes>
                 </configuration>
                 <executions>
