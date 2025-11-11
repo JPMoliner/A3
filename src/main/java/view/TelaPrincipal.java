@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package view;
 
 import javax.swing.ImageIcon;
 
@@ -22,7 +22,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     public TelaPrincipal() {
         initComponents();
-        ImageIcon img = new ImageIcon ("C:\\Users\\Rafael Sonoki\\Desktop\\Java Uni\\Aula\\ProjetoA3SemControlador\\src\\View/icone.png"); 
+        ImageIcon img = new ImageIcon ("C:\\Users\\Rafael Sonoki\\Desktop\\Java Uni\\Aula\\ProjetoA3SemControlador\\src\\view/icone.png"); 
         this.setIconImage(img.getImage());
     }
     

@@ -1,6 +1,6 @@
 package principal;
 
-import View.TelaPrincipal;
+import view.TelaPrincipal;
 import DAO.Database;
 import DAO.AlunoDAO;
 import DAO.FuncionarioDAO;

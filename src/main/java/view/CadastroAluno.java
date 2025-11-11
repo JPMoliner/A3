@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import DAO.AlunoDAO;
 import javax.swing.JOptionPane;
@@ -81,7 +81,6 @@ public class CadastroAluno extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        c_CPFAluno.setText("   .   .   -  ");
         c_CPFAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c_CPFAlunoActionPerformed(evt);

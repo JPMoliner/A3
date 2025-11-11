@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import DAO.FuncionarioDAO;
 import model.Funcionario;
