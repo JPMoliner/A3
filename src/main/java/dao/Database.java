@@ -9,25 +9,50 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 
+/**
+ * Classe utilitária responsável por gerenciar a conexão com o banco de dados
+ * SQLite e executar comandos SQL.
+ * <p>
+ * Oferece métodos estáticos para criar conexões, executar comandos e queries,
+ * além de fornecer {@link PreparedStatement}s para uso em outras classes DAO.
+ * </p>
+ */
 public class Database {
-
+    
+    /** Logger utilizado para registrar mensagens e erros relacionados ao banco de dados. */
     private static Logger logger = Logger.getLogger("Database");
-     
+    
+    /**
+     * Construtor privado para impedir instanciação.
+     * <p>Todos os métodos da classe são estáticos.</p>
+     */
     private Database(){
         logger.info("Utility class");
     }
     
-    // URL Padrão
+    /** URL padrão do banco de dados SQLite. */
     private static final String DEFAULT_URL = "jdbc:sqlite:DataBase.db";
+    
+    /** Conexão ativa com o banco de dados. */
     private static Connection connection = null;
+    
+    /** Objeto utilizado para execução de comandos SQL simples. */
     private static Statement statement = null;
 
-    // Método original, agora chama o método sobrecarregado
+    /**
+     * Cria uma conexão com o banco de dados utilizando a URL padrão.
+     * <p>Chama internamente o método {@link #createConnection(String)}.</p>
+     */
     public static void createConnection() {
         createConnection(DEFAULT_URL);
     }
 
-    // Novo método sobrecarregado para testes (esta é a nossa modificação)
+    /**
+     * Cria uma conexão com o banco de dados utilizando a URL informada.
+     * <p>Se já existir uma conexão aberta, ela será fechada antes de criar uma nova.</p>
+     *
+     * @param url Caminho ou URL do banco de dados.
+     */
     public static void createConnection(String url) {
         try {
             if (connection != null && !connection.isClosed()) {
@@ -40,14 +65,20 @@ public class Database {
         }
     }
 
-    //
-    // AQUI ESTÃO OS MÉTODOS QUE FALTAVAM:
-    //
-
+    /**
+     * Retorna o objeto {@link Connection} atual.
+     *
+     * @return Conexão ativa com o banco de dados, ou {@code null} se não houver conexão.
+     */
     public static Connection getConection() {
         return connection;
     }
 
+    /**
+     * Executa um comando SQL (como CREATE, INSERT, UPDATE, DELETE).
+     *
+     * @param command Comando SQL a ser executado.
+     */
     public static void executeCommand(String command) {
         if (statement == null) {
             return;
@@ -59,6 +90,13 @@ public class Database {
         }
     }
 
+    /**
+     * Executa uma consulta SQL e retorna o resultado.
+     *
+     * @param query Consulta SQL (SELECT) a ser executada.
+     * @return Objeto {@link ResultSet} contendo os resultados da consulta,
+     *         ou {@code null} em caso de erro.
+     */
     public static ResultSet executeQuery(String query) {
         if (statement == null) {
             return null;
@@ -71,6 +109,12 @@ public class Database {
         return null;
     }
 
+    /**
+     * Retorna um objeto {@link PreparedStatement} para execução de comandos SQL parametrizados.
+     *
+     * @param command Comando SQL parametrizado.
+     * @return Objeto {@link PreparedStatement} configurado, ou {@code null} em caso de erro.
+     */
     public static PreparedStatement getPreparedStatement(String command) {
         if (connection == null) {
             return null;
