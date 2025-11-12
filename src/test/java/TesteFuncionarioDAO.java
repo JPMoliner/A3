@@ -36,7 +36,7 @@ public class TesteFuncionarioDAO {
         assertEquals(30, func.getIdade());
         assertEquals("Engenheiro", func.getCargo());
         assertEquals(pis, func.getPIS());
-        assertEquals(cpf, func.getCPF());
+        assertEquals(cpf, func.getCpf());
     }
 
     @Test

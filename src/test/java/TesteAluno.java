@@ -32,8 +32,8 @@ public class TesteAluno {
         assertEquals(5, aluno.getFase());
 
         // Teste original que já existia
-        aluno.setCPF("252525252525");
-        assertEquals("252525252525", aluno.getCPF());
+        aluno.setCpf("252525252525");
+        assertEquals("252525252525", aluno.getCpf());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class TesteAluno {
         assertEquals(1, aluno.getId());
         assertEquals("Joao", aluno.getNome());
         assertEquals(22, aluno.getIdade());
-        assertEquals("123.456.789-00", aluno.getCPF());
+        assertEquals("123.456.789-00", aluno.getCpf());
         assertEquals("Engenharia", aluno.getCurso());
         assertEquals(2, aluno.getFase());
 

@@ -12,8 +12,8 @@ public class TestePessoa {
             super();
         }
 
-        public PessoaConcreta(int id, String nome, int idade, String CPF) {
-            super(id, nome, idade, CPF);
+        public PessoaConcreta(int id, String nome, int idade, String cpf) {
+            super(id, nome, idade, cpf);
         }
     }
 
@@ -23,12 +23,12 @@ public class TestePessoa {
         p.setId(100);
         p.setNome("Pessoa Teste");
         p.setIdade(99);
-        p.setCPF("999.999.999-99");
+        p.setCpf("999.999.999-99");
 
         assertEquals(100, p.getId());
         assertEquals("Pessoa Teste", p.getNome());
         assertEquals(99, p.getIdade());
-        assertEquals("999.999.999-99", p.getCPF());
+        assertEquals("999.999.999-99", p.getCpf());
     }
 
     @Test
@@ -38,6 +38,6 @@ public class TestePessoa {
         assertEquals(10, p.getId());
         assertEquals("Nome Construtor", p.getNome());
         assertEquals(50, p.getIdade());
-        assertEquals("123.456.789-00", p.getCPF());
+        assertEquals("123.456.789-00", p.getCpf());
     }
 }

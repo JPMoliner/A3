@@ -212,7 +212,7 @@ public class GerenciaAluno extends javax.swing.JFrame {
             int idade = 0;
             String curso = "";
             int fase = 0;
-            String CPF = "";
+            String cpf = "";
 
             if (this.c_nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -241,7 +241,7 @@ public class GerenciaAluno extends javax.swing.JFrame {
             if (this.c_CPFAluno.getText().length() != 14) {
                 throw new Mensagens("O CPF deve conter 11 digitos.");
             } else {
-                CPF = this.c_CPFAluno.getText();
+                cpf = this.c_CPFAluno.getText();
             }
 
             if (this.jTableAlunos.getSelectedRow() == -1) {
@@ -252,7 +252,7 @@ public class GerenciaAluno extends javax.swing.JFrame {
 
             
             // envia os dados para o Aluno processar
-            if (AlunoDAO.updateAluno(curso, fase, nome, idade, CPF, id)) {
+            if (AlunoDAO.updateAluno(curso, fase, nome, idade, cpf, id)) {
 
                 // limpa os campos
                 this.c_nome.setText("");
@@ -281,13 +281,13 @@ public class GerenciaAluno extends javax.swing.JFrame {
             String idade = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 2).toString();
             String curso = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 3).toString();
             String fase = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 4).toString();
-            String CPF = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 5).toString();
+            String cpf = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 5).toString();
 
             this.c_nome.setText(nome);
             this.c_idade.setText(idade);
             this.c_curso.setText(curso);
             this.c_fase.setText(fase);
-            this.c_CPFAluno.setText(CPF);
+            this.c_CPFAluno.setText(cpf);
             
             
 
@@ -357,7 +357,7 @@ public class GerenciaAluno extends javax.swing.JFrame {
                 a.getIdade(),
                 a.getCurso(),
                 a.getFase(),
-                a.getCPF()
+                a.getCpf()
             });
         }
     }

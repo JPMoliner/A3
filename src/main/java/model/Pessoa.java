@@ -21,7 +21,7 @@ public abstract class Pessoa {
     private int idade;
     
     /** CPF (Cadastro de Pessoa Física) da pessoa. */
-    private String CPF;
+    private String cpf;
 
     /**
      * Construtor padrão sem parâmetros.
@@ -36,13 +36,13 @@ public abstract class Pessoa {
      * @param id identificador único
      * @param nome nome completo
      * @param idade idade em anos
-     * @param CPF CPF da pessoa
+     * @param cpf CPF da pessoa
      */
-    public Pessoa(int id, String nome, int idade, String CPF) {
+    public Pessoa(int id, String nome, int idade, String cpf) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
-        this.CPF = CPF;
+        this.cpf = cpf;
     }
 
     /**
@@ -102,19 +102,19 @@ public abstract class Pessoa {
     /**
      * Retorna o CPF da pessoa.
      * 
-     * @return o CPF da pessoa
+     * @return o cpf da pessoa
      */
-    public String getCPF() {
-        return CPF;
+    public String getCpf() {
+        return cpf;
     }
 
     /**
      * Define o CPF da pessoa.
      * 
-     * @param CPF novo CPF da pessoa
+     * @param cpf novo CPF da pessoa
      */
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
     
 }

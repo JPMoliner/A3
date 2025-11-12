@@ -207,7 +207,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
             String nome = "";
             int idade = 0;
             String cargo = "";
-            String CPF = "";
+            String cpf = "";
             int PIS = 0;
 
             if (this.c_nome.getText().length() < 2) {
@@ -231,7 +231,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
             if (this.c_CPF.getText().length() != 14) {
                 throw new Mensagens("CPF deve conter 11 digitos.");
             } else {
-                CPF = this.c_CPF.getText();
+                cpf = this.c_CPF.getText();
             }
             
             if (this.c_PIS.getText().length() <= 5) {
@@ -248,7 +248,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
 
             // envia os dados para o Aluno processar
             
-            if (FuncionarioDAO.updateFuncionario(cargo, CPF, PIS, nome, idade, id)) {
+            if (FuncionarioDAO.updateFuncionario(cargo, cpf, PIS, nome, idade, id)) {
                 // limpa os campos
                 this.c_nome.setText("");
                 this.c_idade.setText("");
@@ -275,14 +275,14 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
             String nome = this.jTableFuncionario.getValueAt(this.jTableFuncionario.getSelectedRow(), 1).toString();
             String idade = this.jTableFuncionario.getValueAt(this.jTableFuncionario.getSelectedRow(), 2).toString();
             String cargo = this.jTableFuncionario.getValueAt(this.jTableFuncionario.getSelectedRow(), 3).toString();
-            String CPF = this.jTableFuncionario.getValueAt(this.jTableFuncionario.getSelectedRow(), 4).toString();
+            String cpf = this.jTableFuncionario.getValueAt(this.jTableFuncionario.getSelectedRow(), 4).toString();
             String PIS = this.jTableFuncionario.getValueAt(this.jTableFuncionario.getSelectedRow(), 5).toString();
             
 
             this.c_nome.setText(nome);
             this.c_idade.setText(idade);
             this.c_cargo.setText(cargo);
-            this.c_CPF.setText(CPF);
+            this.c_CPF.setText(cpf);
             this.c_PIS.setText(PIS);
 
         }
@@ -350,7 +350,7 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
                 a.getNome(),
                 a.getIdade(),
                 a.getCargo(),
-                a.getCPF(),
+                a.getCpf(),
                 a.getPIS()
             });
         }

@@ -3,7 +3,7 @@ package model;
 /**
  * Classe que representa um aluno do sistema.
  * 
- * <p>Herda os atributos básicos de {@link Pessoa}, como ID, nome, idade e CPF,
+ * <p>Herda os atributos básicos de {@link Pessoa}, como ID, nome, idade e cpf,
  * e adiciona informações específicas de alunos, como curso e fase.</p>
  * 
  * @author Guilhermemhz
@@ -43,10 +43,10 @@ public class Aluno extends Pessoa {
      * @param id identificador único do aluno
      * @param nome nome completo do aluno
      * @param idade idade em anos
-     * @param CPF CPF do aluno
+     * @param cpf CPF do aluno
      */
-    public Aluno(String curso, int fase, int id, String nome, int idade, String CPF) {
-        super(id, nome, idade, CPF);
+    public Aluno(String curso, int fase, int id, String nome, int idade, String cpf) {
+        super(id, nome, idade, cpf);
         this.curso = curso;
         this.fase = fase;
     }

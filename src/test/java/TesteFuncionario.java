@@ -10,7 +10,7 @@ public class TesteFuncionario {
         
         func.setNome("Funcionario Teste");
         func.setIdade(40);
-        func.setCPF("777.777.77A-77");
+        func.setCpf("777.777.77A-77");
         
         // Nota de QA: O método em Funcionario.java está nomeado "setCurso", mas afeta "cargo"
         // Isso é um "code smell", mas o teste deve refletir o código como está.
@@ -19,7 +19,7 @@ public class TesteFuncionario {
 
         assertEquals("Funcionario Teste", func.getNome());
         assertEquals(40, func.getIdade());
-        assertEquals("777.777.77A-77", func.getCPF());
+        assertEquals("777.777.77A-77", func.getCpf());
         assertEquals("RH", func.getCargo());
         assertEquals(987654, func.getPIS());
     }
@@ -33,7 +33,7 @@ public class TesteFuncionario {
         assertEquals("Super Funcionario", func.getNome());
         assertEquals(50, func.getIdade());
         assertEquals("CEO", func.getCargo());
-        assertEquals("111.222.333-44", func.getCPF());
+        assertEquals("111.222.333-44", func.getCpf());
         assertEquals(12345, func.getPIS());
         
         // Testa o toString() para cobertura completa
@@ -41,7 +41,7 @@ public class TesteFuncionario {
                         "\n Nome: " + func.getNome() +
                         "\n Idade: " + func.getIdade() +
                         "\n Cargo: " + func.getCargo() +
-                        "\n CPF:" + func.getCPF() +
+                        "\n CPF:" + func.getCpf() +
                         "\n PIS:" + func.getPIS() +
                         "\n -----------";
         assertEquals(esperado, func.toString());

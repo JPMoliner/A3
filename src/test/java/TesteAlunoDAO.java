@@ -35,7 +35,7 @@ public class TesteAlunoDAO {
         assertEquals(20, aluno.getIdade());
         assertEquals("Engenharia", aluno.getCurso());
         assertEquals(5, aluno.getFase());
-        assertEquals(cpf, aluno.getCPF());
+        assertEquals(cpf, aluno.getCpf());
     }
 
     @Test

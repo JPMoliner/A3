@@ -3,7 +3,7 @@ package model;
 /**
  * Classe que representa um funcionário do sistema.
  * 
- * <p>Herda os atributos básicos de {@link Pessoa}, como ID, nome, idade e CPF,
+ * <p>Herda os atributos básicos de {@link Pessoa}, como ID, nome, idade e cpf,
  * e adiciona informações específicas de funcionários, como cargo e PIS.</p>
  * 
  * @author Guilhermemhz
@@ -39,14 +39,14 @@ public class Funcionario extends Pessoa {
      * Construtor que inicializa todos os atributos, incluindo os herdados de {@link Pessoa}.
      *
      * @param cargo cargo ocupado pelo funcionário
-     * @param CPF CPF do funcionário
+     * @param cpf cpf do funcionário
      * @param PIS número do PIS do funcionário
      * @param id identificador único
      * @param nome nome completo
      * @param idade idade em anos
      */
-    public Funcionario(String cargo, String CPF, int PIS, int id, String nome, int idade) {
-        super(id, nome, idade, CPF);
+    public Funcionario(String cargo, String cpf, int PIS, int id, String nome, int idade) {
+        super(id, nome, idade, cpf);
         this.cargo = cargo;
         this.PIS = PIS;
     }
@@ -99,7 +99,7 @@ public class Funcionario extends Pessoa {
                 + "\n Nome: " + this.getNome()
                 + "\n Idade: " + this.getIdade()
                 + "\n Cargo: " + this.getCargo()
-                + "\n CPF:" + this.getCPF()
+                + "\n CPF:" + this.getCpf()
                 + "\n PIS:" + this.getPIS()
                 + "\n -----------";
     }
