@@ -31,7 +31,7 @@ public class FuncionarioDAO {
     
     /**
      * Cria a tabela de Funcionários no banco de dados caso ainda não exista.
-     * <p>Os campos criados são: id, cargo, CPF, PIS, nome e idade.</p>
+     * <p>Os campos criados são: id, cargo, cpf, PIS, nome e idade.</p>
      */
     public static void initializeDB() {
         Database.executeCommand("CREATE TABLE IF NOT EXISTS Funcionarios (id INTEGER PRIMARY KEY, cargo TEXT, CPF TEXT, PIS INTEGER, nome TEXT, idade INTEGER)");
@@ -41,21 +41,21 @@ public class FuncionarioDAO {
      * Adiciona um novo funcionário à tabela do banco de dados.
      *
      * @param cargo Cargo ocupado pelo funcionário.
-     * @param CPF CPF do funcionário.
+     * @param cpf CPF do funcionário.
      * @param PIS Número de identificação do PIS.
      * @param nome Nome completo do funcionário.
      * @param idade Idade do funcionário.
      * @return {@code true} se o funcionário foi adicionado com sucesso, {@code false} caso contrário.
      */
-    public static boolean addFuncionario(String cargo, String CPF, int PIS, String nome, int idade) {
-        PreparedStatement statement = Database.getPreparedStatement("INSERT INTO Funcionarios (cargo, CPF, PIS, nome, idade) VALUES (?, ?, ?, ?, ?)");
+    public static boolean addFuncionario(String cargo, String cpf, int PIS, String nome, int idade) {
+        PreparedStatement statement = Database.getPreparedStatement("INSERT INTO Funcionarios (cargo, cpf, PIS, nome, idade) VALUES (?, ?, ?, ?, ?)");
         if (statement == null) {
             return false;
         }
 
         try {
             statement.setString(1, cargo);
-            statement.setString(2, CPF);
+            statement.setString(2, cpf);
             statement.setInt(3, PIS);
             statement.setString(4, nome);
             statement.setInt(5, idade);
@@ -83,7 +83,7 @@ public class FuncionarioDAO {
             while(result.next()) {
                 funcionarios.add(new Funcionario(
                         result.getString("cargo"),
-                        result.getString("CPF"),
+                        result.getString("cpf"),
                         result.getInt("PIS"),
                         result.getInt("id"),
                         result.getString("nome"),
@@ -113,21 +113,21 @@ public class FuncionarioDAO {
      * Atualiza os dados de um funcionário existente no banco de dados.
      *
      * @param cargo Novo cargo do funcionário.
-     * @param CPF Novo CPF do funcionário.
+     * @param cpf Novo CPF do funcionário.
      * @param PIS Novo número PIS.
      * @param nome Novo nome do funcionário.
      * @param idade Nova idade do funcionário.
      * @param id ID do funcionário a ser atualizado.
      * @return {@code true} se a atualização foi bem-sucedida, {@code false} caso contrário.
      */
-    public static boolean updateFuncionario(String cargo, String CPF, int PIS, String nome, int idade, int id){
-        PreparedStatement statement = Database.getPreparedStatement("UPDATE Funcionarios SET cargo = ?, CPF = ?, PIS = ?, nome = ?, idade = ? WHERE id = ?");
+    public static boolean updateFuncionario(String cargo, String cpf, int PIS, String nome, int idade, int id){
+        PreparedStatement statement = Database.getPreparedStatement("UPDATE Funcionarios SET cargo = ?, cpf = ?, PIS = ?, nome = ?, idade = ? WHERE id = ?");
         if (statement == null) {
             return false;
         }
         try {
             statement.setString(1, cargo);
-            statement.setString(2, CPF);
+            statement.setString(2, cpf);
             statement.setInt(3, PIS);
             statement.setString(4, nome);
             statement.setInt(5, idade);
@@ -156,7 +156,7 @@ public class FuncionarioDAO {
             if (result.next()) {
                 return new Funcionario(
                     result.getString("cargo"),
-                    result.getString("CPF"),
+                    result.getString("cpf"),
                     result.getInt("PIS"),
                     result.getInt("id"),
                     result.getString("nome"),
