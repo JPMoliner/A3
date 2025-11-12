@@ -9,19 +9,44 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList; 
 
+/**
+ * Classe responsável por realizar as operações de acesso ao banco de dados
+ * relacionadas à entidade {@link model.Funcionario}.
+ * <p>
+ * Contém métodos para criar a tabela, inserir, atualizar, remover e buscar
+ * funcionários cadastrados.
+ * </p>
+ */
 public class FuncionarioDAO {
     
+    /** Logger utilizado para registrar mensagens e exceções da classe. */
     private static Logger logger = Logger.getLogger("FuncionarioDAO");
     
+    /**
+     * Construtor privado para impedir instanciação, já que todos os métodos são estáticos.
+     */
     private FuncionarioDAO(){
         logger.log(Level.WARNING, "Utility class");
     }
     
-
+    /**
+     * Cria a tabela de Funcionários no banco de dados caso ainda não exista.
+     * <p>Os campos criados são: id, cargo, CPF, PIS, nome e idade.</p>
+     */
     public static void InitializeDB() {
         Database.executeCommand("CREATE TABLE IF NOT EXISTS Funcionarios (id INTEGER PRIMARY KEY, cargo TEXT, CPF TEXT, PIS INTEGER, nome TEXT, idade INTEGER)");
     }
 
+    /**
+     * Adiciona um novo funcionário à tabela do banco de dados.
+     *
+     * @param cargo Cargo ocupado pelo funcionário.
+     * @param CPF CPF do funcionário.
+     * @param PIS Número de identificação do PIS.
+     * @param nome Nome completo do funcionário.
+     * @param idade Idade do funcionário.
+     * @return {@code true} se o funcionário foi adicionado com sucesso, {@code false} caso contrário.
+     */
     public static boolean addFuncionario(String cargo, String CPF, int PIS, String nome, int idade) {
         PreparedStatement statement = Database.getPreparedStatement("INSERT INTO Funcionarios (cargo, CPF, PIS, nome, idade) VALUES (?, ?, ?, ?, ?)");
         if (statement == null) {
@@ -43,6 +68,11 @@ public class FuncionarioDAO {
         return true;
     }
     
+    /**
+     * Retorna uma lista com todos os funcionários cadastrados no banco de dados.
+     *
+     * @return Lista de objetos {@link Funcionario}.
+     */
     public static ArrayList<Funcionario> getFuncionarios(){
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
         ResultSet result = Database.executeQuery("SELECT * FROM Funcionarios");
@@ -67,12 +97,29 @@ public class FuncionarioDAO {
         return funcionarios;
     };
     
+    /**
+     * Remove um funcionário do banco de dados a partir do seu ID.
+     *
+     * @param id Identificador do funcionário.
+     * @return {@code true} se a remoção foi realizada com sucesso.
+     */
     public static boolean removeFuncionarioByID(int id){
         Database.executeCommand("DELETE FROM Funcionarios WHERE id = " + id);
         return true;
     }
 
     
+    /**
+     * Atualiza os dados de um funcionário existente no banco de dados.
+     *
+     * @param cargo Novo cargo do funcionário.
+     * @param CPF Novo CPF do funcionário.
+     * @param PIS Novo número PIS.
+     * @param nome Novo nome do funcionário.
+     * @param idade Nova idade do funcionário.
+     * @param id ID do funcionário a ser atualizado.
+     * @return {@code true} se a atualização foi bem-sucedida, {@code false} caso contrário.
+     */
     public static boolean updateFuncionario(String cargo, String CPF, int PIS, String nome, int idade, int id){
         PreparedStatement statement = Database.getPreparedStatement("UPDATE Funcionarios SET cargo = ?, CPF = ?, PIS = ?, nome = ?, idade = ? WHERE id = ?");
         if (statement == null) {
@@ -94,6 +141,13 @@ public class FuncionarioDAO {
         return true;
     }
     
+    /**
+     * Busca um funcionário específico pelo ID.
+     *
+     * @param id Identificador do funcionário.
+     * @return Objeto {@link Funcionario} correspondente ao ID informado,
+     *         ou {@code null} se não for encontrado.
+     */
     public static Funcionario getFuncionarioByID(int id){
         ResultSet result = Database.executeQuery("SELECT * FROM Funcionarios WHERE id = " + id);
         if (result == null)
