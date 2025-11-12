@@ -1,53 +1,61 @@
 import model.Aluno;
-
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-
-
-/* exemplo de varios testes de uma vez com parametros diferentes
-    @ParameterizedTest
-    @CsvSource({
-        "1.0, 1.0, 1.0, -3.0",     // delta = 1² - 4*1*1 = -3
-        "1.0, -2.0, 1.0, 0.0",     // delta = (-2)² - 4*1*1 = 0
-        "1.0, 5.0, 6.0, 1.0"       // delta = 25 - 24 = 1
-    })
-    void testGetDelta(double a, double b, double c, double deltaEsperado) {
-        Equacao equacao = new Equacao(a, b, c);
-        double deltaCalculado = equacao.getDelta();
-        assertEquals(deltaEsperado, deltaCalculado, 0.0001);
-    }
-*/
-
-/* exemplo de um teste
-    @Test
-    void testGetSoma(){
-        //Instancia um objeto da classe Calculadora
-        Calculadora calculadora = new Calculadora(4.0,2.0);
-        //Define o valor esperado para a operação
-        double retornoEsperado = 5.0;
-        //Chama a operacao getSoma()
-        double retornoFeito = calculadora.getSoma();
-        //Premissa verifica se os valores são iguais
-        assertEquals(retornoEsperado,retornoFeito,2);
-    }
-*/
-
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TesteAluno {
+
     @Test
-    void testCPF(){
+    void testConstrutorVazio() {
+        // Testa o construtor vazio (linha 12)
         Aluno aluno = new Aluno();
-        aluno.setCPF("252525252525");
-        assertEquals("252525252525",aluno.getCPF());
+        assertNotNull(aluno);
     }
-    
+
     @Test
-    void testFase(){
+    void testConstrutorDoisArgumentos() {
+        // Testa o construtor de 2 argumentos (linhas 16-18)
+        Aluno aluno = new Aluno("Medicina", 3);
+        assertEquals("Medicina", aluno.getCurso());
+        assertEquals(3, aluno.getFase());
+    }
+
+    @Test
+    void testSettersAndGetters() {
         Aluno aluno = new Aluno();
+        
+        // Testa os setters e getters (linhas 29, 33, 37, 41)
+        aluno.setCurso("Direito");
+        assertEquals("Direito", aluno.getCurso());
+        
         aluno.setFase(5);
-        assertEquals(5,aluno.getFase());
+        assertEquals(5, aluno.getFase());
+
+        // Teste original que já existia
+        aluno.setCPF("252525252525");
+        assertEquals("252525252525", aluno.getCPF());
+    }
+
+    @Test
+    void testConstrutorCompletoEToString() {
+        // Testa o construtor completo (que usa a superclasse)
+        Aluno aluno = new Aluno("Engenharia", 2, 1, "Joao", 22, "123.456.789-00");
+        
+        // Verifica todos os dados
+        assertEquals(1, aluno.getId());
+        assertEquals("Joao", aluno.getNome());
+        assertEquals(22, aluno.getIdade());
+        assertEquals("123.456.789-00", aluno.getCPF());
+        assertEquals("Engenharia", aluno.getCurso());
+        assertEquals(2, aluno.getFase());
+
+        // Testa o método toString() (linhas 47-53)
+        String esperado = "\n ID: 1" +
+                        "\n Nome: Joao" +
+                        "\n Idade: 22" +
+                        "\n Curso: Engenharia" +
+                        "\n Fase:2" +
+                        "\n -----------";
+        assertEquals(esperado, aluno.toString());
     }
 }
