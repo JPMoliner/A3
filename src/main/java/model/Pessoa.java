@@ -117,5 +117,4 @@ public abstract class Pessoa {
         this.CPF = CPF;
     }
     
-
 }
