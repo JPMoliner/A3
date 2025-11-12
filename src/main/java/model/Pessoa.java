@@ -27,7 +27,7 @@ public abstract class Pessoa {
      * Construtor padrão sem parâmetros.
      * Cria uma instância de {@code Pessoa} vazia.
      */
-    public Pessoa() {
+    protected Pessoa() {
     }
 
     /**
@@ -38,7 +38,7 @@ public abstract class Pessoa {
      * @param idade idade em anos
      * @param cpf CPF da pessoa
      */
-    public Pessoa(int id, String nome, int idade, String cpf) {
+    protected Pessoa(int id, String nome, int idade, String cpf) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
