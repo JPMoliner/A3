@@ -1,6 +1,8 @@
 import dao.Database;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TesteDatabase {
@@ -9,44 +11,39 @@ public class TesteDatabase {
 
     @BeforeEach
     public void setUp() {
-        // Conecta ao banco de dados em memória
         Database.createConnection(IN_MEMORY_DB);
     }
-
-    @Test
-    void testExecuteQueryThrowsException() {
-        // 1. Cria um comando SQL sintaticamente inválido
-        String badSql = "SELECT FROM TabelaQueNaoExiste";
-        
-        // 2. Executa a query
-        //    Esperamos que ela falhe (lance SQLException)
-        //    e que o método 'Database.java' capture a exceção (linha 70)
-        //    e retorne 'null' (linha 72)
-        assertNull(Database.executeQuery(badSql));
-    }
-
-    @Test
-    void testGetPreparedStatementThrowsException() {
-        // 1. Cria um comando SQL sintaticamente inválido
-        String badSql = "INSERT INTO TabelaQueNaoExiste (coluna)";
-        
-        // 2. Tenta preparar o statement
-        //    Esperamos que falhe (lance SQLException)
-        //    e que o método 'Database.java' capture a exceção (linha 83)
-        //    e retorne 'null' (linha 85)
-        assertNull(Database.getPreparedStatement(badSql));
-    }
     
+    @AfterEach
+    public void tearDown() throws SQLException {
+        // Garante que a conexão seja fechada após cada teste
+        if (Database.getConection() != null && !Database.getConection().isClosed()) {
+            Database.getConection().close();
+        }
+    }
+
     @Test
-    void testExecuteCommandThrowsException() {
-        // 1. Cria um comando SQL sintaticamente inválido
-        String badSql = "DROP TABELA TabelaQueNaoExiste";
-        
-        // 2. Executa o comando e apenas garante que não quebra a aplicação
-        //    (O método executeCommand não retorna nada, só loga o erro)
-        Database.executeCommand(badSql);
-        
-        // Teste de cobertura simples para o getConection()
+    void testGetConection() {
+        // Teste simples para o getConection()
+        // O ERRO ESTAVA AQUI:
+        assertNotNull(Database.getConection()); 
+    }
+
+    @Test
+    void testMethodsWithClosedConnection() throws SQLException {
+        // Testa o que acontece se a conexão for fechada
         assertNotNull(Database.getConection());
+        Database.getConection().close(); // Força o fechamento
+
+        // Agora, todas as operações devem falhar e cair nos blocos 'catch'
+        
+        // Testa executeCommand (linha 57 do Database.java)
+        Database.executeCommand("SELECT 1"); 
+        
+        // Testa executeQuery (linha 70 do Database.java)
+        assertNull(Database.executeQuery("SELECT 1"));
+
+        // Testa getPreparedStatement (linha 83 do Database.java)
+        assertNull(Database.getPreparedStatement("SELECT 1"));
     }
 }
