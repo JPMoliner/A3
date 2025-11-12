@@ -53,9 +53,7 @@ public class Principal {
             // handle exception
         } catch (ClassNotFoundException e) {
             // handle exception
-        } catch (InstantiationException e) {
-            // handle exception
-        } catch (IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException e) {
             // handle exception
         }
     }
