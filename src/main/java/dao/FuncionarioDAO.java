@@ -95,7 +95,7 @@ public class FuncionarioDAO {
         }
         
         return funcionarios;
-    };
+    }
     
     /**
      * Remove um funcionário do banco de dados a partir do seu ID.
