@@ -15,13 +15,13 @@ public class TesteFuncionario {
         // Nota de QA: O método em Funcionario.java está nomeado "setCurso", mas afeta "cargo"
         // Isso é um "code smell", mas o teste deve refletir o código como está.
         func.setCurso("RH"); 
-        func.setPIS(987654);
+        func.setPis(987654);
 
         assertEquals("Funcionario Teste", func.getNome());
         assertEquals(40, func.getIdade());
         assertEquals("777.777.77A-77", func.getCpf());
         assertEquals("RH", func.getCargo());
-        assertEquals(987654, func.getPIS());
+        assertEquals(987654, func.getPis());
     }
 
     @Test
@@ -34,7 +34,7 @@ public class TesteFuncionario {
         assertEquals(50, func.getIdade());
         assertEquals("CEO", func.getCargo());
         assertEquals("111.222.333-44", func.getCpf());
-        assertEquals(12345, func.getPIS());
+        assertEquals(12345, func.getPis());
         
         // Testa o toString() para cobertura completa
         String esperado = "\n ID: " + func.getId() +
@@ -42,7 +42,7 @@ public class TesteFuncionario {
                         "\n Idade: " + func.getIdade() +
                         "\n Cargo: " + func.getCargo() +
                         "\n CPF:" + func.getCpf() +
-                        "\n PIS:" + func.getPIS() +
+                        "\n PIS:" + func.getPis() +
                         "\n -----------";
         assertEquals(esperado, func.toString());
     }

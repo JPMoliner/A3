@@ -15,7 +15,7 @@ public class Funcionario extends Pessoa {
     private String cargo;
     
     /** Número do PIS (Programa de Integração Social) do funcionário. */
-    private int PIS;
+    private int pis;
 
     /**
      * Construtor padrão sem parâmetros.
@@ -28,11 +28,11 @@ public class Funcionario extends Pessoa {
      * Construtor que inicializa apenas os atributos específicos de {@code Funcionario}.
      *
      * @param cargo cargo ocupado pelo funcionário
-     * @param PIS número do PIS do funcionário
+     * @param pis número do PIS do funcionário
      */
-    public Funcionario(String cargo, int PIS) {
+    public Funcionario(String cargo, int pis) {
         this.cargo = cargo;
-        this.PIS = PIS;
+        this.pis = pis;
     }
 
     /**
@@ -40,15 +40,15 @@ public class Funcionario extends Pessoa {
      *
      * @param cargo cargo ocupado pelo funcionário
      * @param cpf cpf do funcionário
-     * @param PIS número do PIS do funcionário
+     * @param pis número do PIS do funcionário
      * @param id identificador único
      * @param nome nome completo
      * @param idade idade em anos
      */
-    public Funcionario(String cargo, String cpf, int PIS, int id, String nome, int idade) {
+    public Funcionario(String cargo, String cpf, int pis, int id, String nome, int idade) {
         super(id, nome, idade, cpf);
         this.cargo = cargo;
-        this.PIS = PIS;
+        this.pis = pis;
     }
 
     /**
@@ -74,17 +74,17 @@ public class Funcionario extends Pessoa {
      * 
      * @return o número do PIS
      */
-    public int getPIS() {
-        return PIS;
+    public int getPis() {
+        return pis;
     }
     
     /**
      * Define o número do PIS do funcionário.
      * 
-     * @param PIS novo número do PIS
+     * @param pis novo número do PIS
      */
-    public void setPIS (int PIS) {
-        this.PIS = PIS;
+    public void setPis (int pis) {
+        this.pis = pis;
     }
 
     /**
@@ -100,7 +100,7 @@ public class Funcionario extends Pessoa {
                 + "\n Idade: " + this.getIdade()
                 + "\n Cargo: " + this.getCargo()
                 + "\n CPF:" + this.getCpf()
-                + "\n PIS:" + this.getPIS()
+                + "\n PIS:" + this.getPis()
                 + "\n -----------";
     }
 

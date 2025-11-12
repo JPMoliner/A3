@@ -167,8 +167,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             String nome = "";
             int idade = 0;
             String cargo = "";
-            String CPF = "";
-            int PIS = 0;
+            String cpf = "";
+            int pis = 0;
 
             if (this.c_nomeFunc.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -191,18 +191,18 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             if (this.c_CPFFunc.getText().length() != 14) {
                 throw new Mensagens("CPF deve conter 11 digitos.");
             } else {
-                CPF = this.c_CPFFunc.getText();
+                cpf = this.c_CPFFunc.getText();
             }
 
             if (this.c_PISFunc.getText().length() <6) {
                 throw new Mensagens("PIS deve conter mais de 6 digitos.");
             } else {
-                PIS = Integer.parseInt(this.c_PISFunc.getText());
+                pis = Integer.parseInt(this.c_PISFunc.getText());
             }
             
             // envia os dados para o Controlador cadastrar
             
-            if (FuncionarioDAO.addFuncionario(cargo, CPF, PIS, nome, idade)) {
+            if (FuncionarioDAO.addFuncionario(cargo, cpf, pis, nome, idade)) {
                 JOptionPane.showMessageDialog(rootPane, "Funcionario Cadastrado com Sucesso!");
 
                 // limpa campos da interface

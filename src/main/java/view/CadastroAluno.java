@@ -172,7 +172,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             int idade = 0;
             String curso = "";
             int fase = 0;
-            String CPF = "";
+            String cpf = "";
 
             if (this.c_nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -201,11 +201,11 @@ public class CadastroAluno extends javax.swing.JFrame {
             if (this.c_CPFAluno.getText().length() != 14) {
                 throw new Mensagens("O CPF deve conter 11 digitos.");
             } else {
-                CPF = this.c_CPFAluno.getText();
+                cpf = this.c_CPFAluno.getText();
             }
 
             // envia os dados para o Controlador cadastrar
-            if (AlunoDAO.addAluno(curso, fase, nome, idade, CPF)) {
+            if (AlunoDAO.addAluno(curso, fase, nome, idade, cpf)) {
                 JOptionPane.showMessageDialog(rootPane, "Aluno Cadastrado com Sucesso!");
 
                 // limpa campos da interface
