@@ -33,7 +33,7 @@ public class AlunoDAO {
      * Cria a tabela <b>Alunos</b> no banco de dados, caso ela ainda não exista.
      * <p>Os campos criados são: id, nome, curso, fase, idade e cpf.</p>
      */
-    public static void InitializeDB() {
+    public static void initializeDB() {
         Database.executeCommand("CREATE TABLE IF NOT EXISTS Alunos (id INTEGER PRIMARY KEY, nome TEXT, curso TEXT, fase INTEGER, idade INTEGER, cpf TEXT)");
     }
 

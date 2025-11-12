@@ -17,7 +17,7 @@ public class TesteAlunoDAO {
         Database.createConnection(IN_MEMORY_DB);
         
         // 2. Cria a tabela 'Alunos' (necessário para cada teste, pois o DB é 'em memória')
-        AlunoDAO.InitializeDB();
+        AlunoDAO.initializeDB();
     }
 
     @Test

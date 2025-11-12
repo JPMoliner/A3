@@ -33,7 +33,7 @@ public class FuncionarioDAO {
      * Cria a tabela de Funcionários no banco de dados caso ainda não exista.
      * <p>Os campos criados são: id, cargo, CPF, PIS, nome e idade.</p>
      */
-    public static void InitializeDB() {
+    public static void initializeDB() {
         Database.executeCommand("CREATE TABLE IF NOT EXISTS Funcionarios (id INTEGER PRIMARY KEY, cargo TEXT, CPF TEXT, PIS INTEGER, nome TEXT, idade INTEGER)");
     }
 

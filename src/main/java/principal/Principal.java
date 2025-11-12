@@ -37,8 +37,8 @@ public class Principal {
     public static void main(String[] args) {
         // Inicializa o banco de dados e as tabelas necessárias
         Database.createConnection();
-        AlunoDAO.InitializeDB();
-        FuncionarioDAO.InitializeDB();
+        AlunoDAO.initializeDB();
+        FuncionarioDAO.initializeDB();
 
         // Cria e exibe a tela principal da aplicação
         TelaPrincipal objetotela = new TelaPrincipal();

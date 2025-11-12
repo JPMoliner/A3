@@ -17,7 +17,7 @@ public class TesteFuncionarioDAO {
         Database.createConnection(IN_MEMORY_DB);
         
         // 2. Cria a tabela 'Funcionarios'
-        FuncionarioDAO.InitializeDB();
+        FuncionarioDAO.initializeDB();
     }
 
     @Test
