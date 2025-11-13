@@ -3,7 +3,7 @@ import dao.Database;
 import model.Funcionario;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
+import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TesteFuncionarioDAO {
@@ -46,7 +46,7 @@ public class TesteFuncionarioDAO {
         FuncionarioDAO.addFuncionario("Medico", "222.222.222-22", 22222, "Carlos", 44);
 
         // 2. Busca a lista de funcionarios
-        ArrayList<Funcionario> funcionarios = FuncionarioDAO.getFuncionarios();
+        List<Funcionario> funcionarios = FuncionarioDAO.getFuncionarios();
 
         // 3. Verifica o tamanho e conteúdo
         assertNotNull(funcionarios);

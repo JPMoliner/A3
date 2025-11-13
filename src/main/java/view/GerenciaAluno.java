@@ -2,7 +2,8 @@ package view;
 
 import dao.AlunoDAO;
 import model.Aluno;
-import java.util.ArrayList;
+import java.util.List;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -347,8 +348,7 @@ public class GerenciaAluno extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) this.jTableAlunos.getModel();
         modelo.setNumRows(0);
 
-        ArrayList<Aluno> minhalista = new ArrayList<>();
-        minhalista = AlunoDAO.getAlunos();
+        List<Aluno> minhalista = AlunoDAO.getAlunos();
 
         for (Aluno a : minhalista) {
             modelo.addRow(new Object[]{

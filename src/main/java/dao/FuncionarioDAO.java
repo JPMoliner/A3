@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList; 
+import java.util.List;
 
 /**
  * Classe responsável por realizar as operações de acesso ao banco de dados
@@ -73,8 +74,8 @@ public class FuncionarioDAO {
      *
      * @return Lista de objetos {@link Funcionario}.
      */
-    public static ArrayList<Funcionario> getFuncionarios(){
-        ArrayList<Funcionario> funcionarios = new ArrayList<>();
+    public static List<Funcionario> getFuncionarios(){
+        List<Funcionario> funcionarios = new ArrayList<>();
         ResultSet result = Database.executeQuery("SELECT * FROM Funcionarios");
         if (result == null)
             return funcionarios;

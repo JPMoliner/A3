@@ -2,7 +2,7 @@ package view;
 
 import dao.FuncionarioDAO;
 import model.Funcionario;
-import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -341,8 +341,8 @@ public class GerenciaFuncionario extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) this.jTableFuncionario.getModel();
         modelo.setNumRows(0);
 
-        ArrayList<Funcionario> minhalistafunc = new ArrayList<>();
-        minhalistafunc = FuncionarioDAO.getFuncionarios();
+        List<Funcionario> minhalistafunc = minhalistafunc = FuncionarioDAO.getFuncionarios();
+        
 
         for (Funcionario a : minhalistafunc) {
             modelo.addRow(new Object[]{

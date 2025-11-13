@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Aluno;
 import java.util.ArrayList;
+import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -74,8 +75,8 @@ public class AlunoDAO {
      * @return {@link ArrayList} contendo todos os objetos {@link Aluno} encontrados.
      *         Se não houver alunos, retorna uma lista vazia.
      */
-    public static ArrayList<Aluno> getAlunos(){
-        ArrayList<Aluno> alunos = new ArrayList<>();
+    public static List<Aluno> getAlunos(){
+        List<Aluno> alunos = new ArrayList<>();
         ResultSet result = Database.executeQuery("SELECT * FROM Alunos");
         if (result == null)
             return alunos;

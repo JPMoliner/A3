@@ -3,7 +3,7 @@ import dao.Database;
 import model.Aluno;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
+import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TesteAlunoDAO {
@@ -45,7 +45,7 @@ public class TesteAlunoDAO {
         AlunoDAO.addAluno("Medicina", 3, "Carlos", 24, "222.222.222-22");
 
         // 2. Busca a lista de alunos
-        ArrayList<Aluno> alunos = AlunoDAO.getAlunos();
+        List<Aluno> alunos = AlunoDAO.getAlunos();
 
         // 3. Verifica o tamanho da lista
         assertNotNull(alunos);
