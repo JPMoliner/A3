@@ -7,7 +7,7 @@ public class ImagemDeFundo extends javax.swing.JPanel {
     
     private ImageIcon img;
     
-    public void PainelImagemFundo(){
+    public void painelImagemFundo(){
         img = new ImageIcon();
     }
     
