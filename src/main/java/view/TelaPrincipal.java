@@ -200,7 +200,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * @param evt evento de seleção do menu Sobre
      */
     private void dd_SobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dd_SobreActionPerformed
-
+        // Nenhuma ação específica aqui.
     }//GEN-LAST:event_dd_SobreActionPerformed
 
     /**
@@ -240,6 +240,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
