@@ -1,15 +1,22 @@
-
 package view;
 
-
+/**
+ * Janela com informações sobre o trabalho e os integrantes do grupo.
+ */
 public class TelaSobre extends javax.swing.JFrame {
 
-  
+    /**
+     * Constrói a tela Sobre e inicializa os componentes informativos.
+     */
     public TelaSobre() {
         initComponents();
     }
 
-    
+
+    /**
+     * Método gerado pela IDE para montar os componentes estáticos da tela Sobre.
+     * <p><strong>Aviso:</strong> não modificar manualmente o conteúdo, pois ele é recriado pelo Form Editor.</p>
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -35,53 +42,7 @@ public class TelaSobre extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setText("• João Pedro Moliner");
 
-        jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel4.setText("• Gabriel Zamorano");
-
-        jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-
-        jLabel6.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel6.setText("• Gustavo Borges Leipnitz");
-
-        jLabel7.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel7.setText("• Guilherme Menegotto");
-
-        jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(144, 144, 144)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6))
-                .addGap(109, 109, 109))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(351, 351, 351)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(349, 349, 349)
-                        .addComponent(jButton1)))
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
+@@ -85,56 +92,63 @@ public class TelaSobre extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
@@ -107,12 +68,19 @@ public class TelaSobre extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Fecha a janela Sobre ao clicar no botão OK.
+     *
+     * @param evt evento de clique no botão OK
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Exibe a tela Sobre de forma independente.
+     *
+     * @param args argumentos de linha de comando
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
