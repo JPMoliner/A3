@@ -2,7 +2,6 @@ package view;
 
 import javax.swing.ImageIcon;
 
-
 /**
  * Janela principal do sistema de gerenciamento, exibindo os menus de acesso às demais telas.
  * <p>Permite abrir os formulários de cadastro e gerenciamento de alunos e funcionários, além da tela Sobre.</p>
@@ -20,7 +19,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
-        ImageIcon img = new ImageIcon ("C:\\Users\\Rafael Sonoki\\Desktop\\Java Uni\\Aula\\ProjetoA3SemControlador\\src\\view/icone.png");
+        ImageIcon img = new ImageIcon("C:\\Users\\Rafael Sonoki\\Desktop\\Java Uni\\Aula\\ProjetoA3SemControlador\\src\\view/icone.png");
         this.setIconImage(img.getImage());
     }
 
@@ -48,11 +47,83 @@ public class TelaPrincipal extends javax.swing.JFrame {
         dd_IntGrupo = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
-
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-@@ -121,85 +125,122 @@ public class TelaPrincipal extends javax.swing.JFrame {
+        setTitle("Sistema de Gerenciamento");
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Sistema de Gerenciamento");
+
+        // Menu "Arquivo" com opção Sair
+        jMenu3.setText("Arquivo");
+
+        jMenuItem4.setText("Sair");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu3);
+
+        // Menu "Cadastro" com Aluno e Funcionário
+        jMenu4.setText("Cadastro");
+
+        c_Aluno.setText("Aluno");
+        c_Aluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c_AlunoActionPerformed(evt);
+            }
+        });
+        jMenu4.add(c_Aluno);
+
+        c_Funcionario.setText("Funcionário");
+        c_Funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c_FuncionarioActionPerformed(evt);
+            }
+        });
+        jMenu4.add(c_Funcionario);
+
+        jMenuBar1.add(jMenu4);
+
+        // Menu "Gerenciar" com gerenciamento de Aluno e Funcionário
+        jMenu5.setText("Gerenciar");
+
+        g_aluno.setText("Gerenciar Alunos");
+        g_aluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g_alunoActionPerformed(evt);
+            }
+        });
+        jMenu5.add(g_aluno);
+
+        g_Funcionario.setText("Gerenciar Funcionários");
+        g_Funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g_FuncionarioActionPerformed(evt);
+            }
+        });
+        jMenu5.add(g_Funcionario);
+
+        jMenuBar1.add(jMenu5);
+
+        // Menu "Sobre"
+        dd_Sobre.setText("Sobre");
+        dd_Sobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dd_SobreActionPerformed(evt);
+            }
+        });
+
+        dd_IntGrupo.setText("Integrantes do Grupo");
+        dd_IntGrupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dd_IntGrupoActionPerformed(evt);
+            }
+        });
         dd_Sobre.add(dd_IntGrupo);
 
         jMenuBar1.add(dd_Sobre);
@@ -63,15 +134,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 994, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -84,7 +151,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * @param evt evento de clique no item de menu
      */
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-    System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
