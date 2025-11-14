@@ -3,7 +3,6 @@ package view;
 import dao.AlunoDAO;
 import model.Aluno;
 import java.util.List;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
