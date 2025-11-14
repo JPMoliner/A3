@@ -43,7 +43,95 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         c_nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-@@ -130,62 +135,82 @@ public class CadastroAluno extends javax.swing.JFrame {
+                c_nomeActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Idade: ");
+
+        jLabel3.setText("Curso: ");
+
+        c_curso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c_cursoActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Fase: ");
+
+        c_fase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c_faseActionPerformed(evt);
+            }
+        });
+
+        b_cadastrar.setText("Cadastrar");
+        b_cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_cadastrarActionPerformed(evt);
+            }
+        });
+
+        b_cancelar.setText("Cancelar");
+        b_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_cancelarActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("CPF:");
+
+        try {
+            c_CPFAluno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        c_CPFAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c_CPFAlunoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(c_CPFAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(c_idade, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(c_nome)
+                            .addComponent(c_curso)))
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(b_cadastrar)
+                                .addGap(107, 107, 107)
+                                .addComponent(b_cancelar))
+                            .addComponent(c_fase, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(c_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -126,7 +214,20 @@ public class CadastroAluno extends javax.swing.JFrame {
             if (this.c_curso.getText().length() < 2) {
                 throw new Mensagens("Curso deve conter ao menos 2 caracteres.");
             } else {
-@@ -206,62 +231,74 @@ public class CadastroAluno extends javax.swing.JFrame {
+                curso = this.c_curso.getText();
+            }
+
+            if (this.c_fase.getText().length() <= 0) {
+                throw new Mensagens("Fase deve ser numero e maior que zero.");
+            } else {
+                fase = Integer.parseInt(this.c_fase.getText());
+            }
+            
+            if (this.c_CPFAluno.getText().length() != 14) {
+                throw new Mensagens("O CPF deve conter 11 digitos.");
+            } else {
+                cpf = this.c_CPFAluno.getText();
+            }
 
             // envia os dados para o Controlador cadastrar
             if (AlunoDAO.addAluno(curso, fase, nome, idade, cpf)) {
@@ -138,7 +239,6 @@ public class CadastroAluno extends javax.swing.JFrame {
                 this.c_curso.setText("");
                 this.c_fase.setText("");
                 this.c_CPFAluno.setText("");
-
             }
 
             System.out.println(AlunoDAO.getAlunos().toString());
@@ -148,7 +248,6 @@ public class CadastroAluno extends javax.swing.JFrame {
         } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Informe um numero.");
         }
-
 
     }//GEN-LAST:event_b_cadastrarActionPerformed
 
@@ -201,7 +300,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-            /* Create and display the form */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CadastroAluno().setVisible(true);
