@@ -11,12 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe responsável por realizar as operações de acesso ao banco de dados
- * relacionadas à entidade {@link model.Funcionario}.
- * <p>
- * Contém métodos para criar a tabela, inserir, atualizar, remover e buscar
- * funcionários cadastrados.
- * </p>
+ * Data Access Object (DAO) responsável por realizar as operações de banco de dados da entidade {@link model.Funcionario}.
+ * <p>Disponibiliza métodos estáticos para criar tabela, inserir, atualizar, remover e consultar funcionários.</p>
  */
 public class FuncionarioDAO {
     
@@ -31,8 +27,8 @@ public class FuncionarioDAO {
     }
     
     /**
-     * Cria a tabela de Funcionários no banco de dados caso ainda não exista.
-     * <p>Os campos criados são: id, cargo, cpf, pis, nome e idade.</p>
+     * Cria a tabela <b>Funcionarios</b> no banco de dados caso ainda não exista.
+     * <p>Os campos criados são: id, cargo, CPF, PIS, nome e idade.</p>
      */
     public static void initializeDB() {
         Database.executeCommand("CREATE TABLE IF NOT EXISTS Funcionarios (id INTEGER PRIMARY KEY, cargo TEXT, cpf TEXT, pis INTEGER, nome TEXT, idade INTEGER)");
@@ -41,12 +37,12 @@ public class FuncionarioDAO {
     /**
      * Adiciona um novo funcionário à tabela do banco de dados.
      *
-     * @param cargo Cargo ocupado pelo funcionário.
-     * @param cpf CPF do funcionário.
-     * @param pis Número de identificação do PIS.
-     * @param nome Nome completo do funcionário.
-     * @param idade Idade do funcionário.
-     * @return {@code true} se o funcionário foi adicionado com sucesso, {@code false} caso contrário.
+     * @param cargo cargo ocupado pelo funcionário
+     * @param cpf CPF do funcionário
+     * @param pis número de identificação do PIS
+     * @param nome nome completo do funcionário
+     * @param idade idade do funcionário
+     * @return {@code true} se o funcionário foi adicionado com sucesso ou {@code false} em caso de erro
      */
     public static boolean addFuncionario(String cargo, String cpf, int pis, String nome, int idade) {
         PreparedStatement statement = Database.getPreparedStatement("INSERT INTO Funcionarios (cargo, cpf, pis, nome, idade) VALUES (?, ?, ?, ?, ?)");
@@ -72,7 +68,7 @@ public class FuncionarioDAO {
     /**
      * Retorna uma lista com todos os funcionários cadastrados no banco de dados.
      *
-     * @return Lista de objetos {@link Funcionario}.
+     * @return lista de objetos {@link Funcionario} encontrados ou uma lista vazia se não houver registros
      */
     public static List<Funcionario> getFuncionarios(){
         List<Funcionario> funcionarios = new ArrayList<>();
@@ -101,8 +97,8 @@ public class FuncionarioDAO {
     /**
      * Remove um funcionário do banco de dados a partir do seu ID.
      *
-     * @param id Identificador do funcionário.
-     * @return {@code true} se a remoção foi realizada com sucesso.
+     * @param id identificador do funcionário
+     * @return {@code true} após a execução do comando de remoção
      */
     public static boolean removeFuncionarioByID(int id){
         Database.executeCommand("DELETE FROM Funcionarios WHERE id = " + id);
@@ -113,13 +109,13 @@ public class FuncionarioDAO {
     /**
      * Atualiza os dados de um funcionário existente no banco de dados.
      *
-     * @param cargo Novo cargo do funcionário.
-     * @param cpf Novo CPF do funcionário.
-     * @param pis Novo número PIS.
-     * @param nome Novo nome do funcionário.
-     * @param idade Nova idade do funcionário.
-     * @param id ID do funcionário a ser atualizado.
-     * @return {@code true} se a atualização foi bem-sucedida, {@code false} caso contrário.
+     * @param cargo novo cargo do funcionário
+     * @param cpf novo CPF do funcionário
+     * @param pis novo número PIS
+     * @param nome novo nome do funcionário
+     * @param idade nova idade do funcionário
+     * @param id ID do funcionário a ser atualizado
+     * @return {@code true} se a atualização foi bem-sucedida ou {@code false} em caso de erro
      */
     public static boolean updateFuncionario(String cargo, String cpf, int pis, String nome, int idade, int id){
         PreparedStatement statement = Database.getPreparedStatement("UPDATE Funcionarios SET cargo = ?, cpf = ?, pis = ?, nome = ?, idade = ? WHERE id = ?");
@@ -145,9 +141,8 @@ public class FuncionarioDAO {
     /**
      * Busca um funcionário específico pelo ID.
      *
-     * @param id Identificador do funcionário.
-     * @return Objeto {@link Funcionario} correspondente ao ID informado,
-     *         ou {@code null} se não for encontrado.
+     * @param id identificador do funcionário
+     * @return objeto {@link Funcionario} correspondente ao ID informado ou {@code null} se não for encontrado
      */
     public static Funcionario getFuncionarioByID(int id){
         ResultSet result = Database.executeQuery("SELECT * FROM Funcionarios WHERE id = " + id);
@@ -172,6 +167,4 @@ public class FuncionarioDAO {
             return null;
         }
     }
-    
-
-}
+}    
