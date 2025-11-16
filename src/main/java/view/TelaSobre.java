@@ -5,13 +5,14 @@ package view;
  */
 public class TelaSobre extends javax.swing.JFrame {
 
+    private static final String FONT_FAMILY = "sansserif";
+
     /**
      * Constrói a tela Sobre e inicializa os componentes informativos.
      */
     public TelaSobre() {
         initComponents();
     }
-
 
     /**
      * Método gerado pela IDE para montar os componentes estáticos da tela Sobre.
@@ -32,25 +33,25 @@ public class TelaSobre extends javax.swing.JFrame {
 
         setLocation(new java.awt.Point(0, 0));
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font(FONT_FAMILY, 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Trabalho A3 - Programação de Soluções Computacionais");
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font(FONT_FAMILY, 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font(FONT_FAMILY, 0, 18)); // NOI18N
         jLabel3.setText("• João Pedro Moliner");
 
-        jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font(FONT_FAMILY, 0, 18)); // NOI18N
         jLabel4.setText("• Gabriel Zamorano");
 
-        jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font(FONT_FAMILY, 0, 18)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font(FONT_FAMILY, 0, 18)); // NOI18N
         jLabel6.setText("• Gustavo Borges Leipnitz");
 
-        jLabel7.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font(FONT_FAMILY, 0, 18)); // NOI18N
         jLabel7.setText("• Guilherme Menegotto");
 
         jButton1.setText("OK");
