@@ -1,6 +1,7 @@
 package view;
 
 import dao.AlunoDAO;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -8,6 +9,9 @@ import javax.swing.JOptionPane;
  */
 public class CadastroAluno extends javax.swing.JFrame {
 
+     private static final Logger LOGGER = Logger.getLogger(CadastroAluno.class.getName());
+
+    
     /**
      * Inicializa a tela de cadastro e seus componentes gráficos.
      */
@@ -241,7 +245,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                 this.c_CPFAluno.setText("");
             }
 
-            System.out.println(AlunoDAO.getAlunos().toString());
+            LOGGER.info(String.valueOf(AlunoDAO.getAlunos()));
 
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
