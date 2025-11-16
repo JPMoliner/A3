@@ -47,18 +47,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
         dd_IntGrupo = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
-
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sistema de Gerenciamento desanima");
+        setTitle("Sistema de Gerenciamento");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/desanina.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Sistema de Gerenciamento");
 
+        // Menu "Arquivo" com opção Sair
         jMenu3.setText("Arquivo");
 
-        jMenu4.setText("Cadastrar");
+        jMenuItem4.setText("Sair");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu3);
+
+        // Menu "Cadastro" com Aluno e Funcionário
+        jMenu4.setText("Cadastro");
 
         c_Aluno.setText("Aluno");
         c_Aluno.addActionListener(new java.awt.event.ActionListener() {
@@ -76,11 +87,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(c_Funcionario);
 
-        jMenu3.add(jMenu4);
+        jMenuBar1.add(jMenu4);
 
+        // Menu "Gerenciar" com gerenciamento de Aluno e Funcionário
         jMenu5.setText("Gerenciar");
 
-        g_aluno.setText("Aluno");
+        g_aluno.setText("Gerenciar Alunos");
         g_aluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g_alunoActionPerformed(evt);
@@ -88,7 +100,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu5.add(g_aluno);
 
-        g_Funcionario.setText("Funcionário");
+        g_Funcionario.setText("Gerenciar Funcionários");
         g_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g_FuncionarioActionPerformed(evt);
@@ -96,18 +108,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu5.add(g_Funcionario);
 
-        jMenu3.add(jMenu5);
+        jMenuBar1.add(jMenu5);
 
-        jMenuItem4.setText("Sair");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem4);
-
-        jMenuBar1.add(jMenu3);
-
+        // Menu "Sobre"
         dd_Sobre.setText("Sobre");
         dd_Sobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,13 +134,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
