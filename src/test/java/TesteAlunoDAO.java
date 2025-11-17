@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 
 public class TesteAlunoDAO {
 
@@ -97,4 +99,14 @@ public class TesteAlunoDAO {
         // Verifica se a busca por um ID inexistente retorna nulo
         assertNull(AlunoDAO.getAlunoByID(999));
     }
+    
+       @Test
+    void testConstrutorPrivadoAlunoDAO() throws Exception {
+        Constructor<AlunoDAO> constructor = AlunoDAO.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        AlunoDAO instance = constructor.newInstance();
+        assertNotNull(instance);
+    }
+
 }
