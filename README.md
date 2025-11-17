@@ -9,7 +9,7 @@ Professor: Osmar de Oliveira Braz Júnior
 
 ## Tecnologias Utilizadas
 
-- Java 17
+- Java 17 
 - Maven
 - Junit
 - SonarCloud
