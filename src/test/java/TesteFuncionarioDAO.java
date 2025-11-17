@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 
 public class TesteFuncionarioDAO {
 
@@ -98,5 +100,22 @@ public class TesteFuncionarioDAO {
     void testGetFuncionarioByIDNaoExistente() {
         // Verifica se a busca por um ID inexistente retorna nulo
         assertNull(FuncionarioDAO.getFuncionarioByID(999));
+    }
+    @Test
+    void testConstrutorPrivadoFuncionarioDAO() throws Exception {
+        // Obtém o construtor privado
+        Constructor<FuncionarioDAO> constructor = FuncionarioDAO.class.getDeclaredConstructor();
+
+        // Verifica se o construtor é realmente privado
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+
+        // Permite acessar o construtor usando reflection
+        constructor.setAccessible(true);
+
+        // Instancia a classe apenas para cobrir o código
+        FuncionarioDAO instance = constructor.newInstance();
+
+        // Verifica se instanciou sem problemas
+        assertNotNull(instance);
     }
 }
