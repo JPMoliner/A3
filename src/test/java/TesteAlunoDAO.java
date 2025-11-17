@@ -109,4 +109,10 @@ public class TesteAlunoDAO {
         assertNotNull(instance);
     }
 
+    @Test
+    void testGetAlunoByIDSQLError() {
+        Database.createConnection("jdbc:sqlite::memory:");
+        Database.executeCommand("CREATE TABLE Alunos (nome TEXT)");
+        assertNull(AlunoDAO.getAlunoByID(1));
+    }
 }
