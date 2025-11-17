@@ -46,4 +46,12 @@ public class TesteFuncionario {
                         "\n -----------";
         assertEquals(esperado, func.toString());
     }
+    
+    @Test
+    void testConstrutorParcialFuncionario() {
+    Funcionario f = new Funcionario("Engenheiro", 123456);
+
+    assertEquals("Engenheiro", f.getCargo());
+    assertEquals(123456, f.getPis());
+}
 }
