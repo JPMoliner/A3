@@ -13,7 +13,7 @@
         
         <sonar.organization>jpmoliner</sonar.organization>
         <sonar.projectKey>JPMoliner_A3</sonar.projectKey>
-        <sonar.projectName>A3</sonar.projectName>
+        <sonar.projectName>A3-GestaoAlunosFuncionarios</sonar.projectName>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.coverage.exclusions>**/principal/*Principal.*, **/view/*.*</sonar.coverage.exclusions> 
     </properties>
