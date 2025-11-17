@@ -100,7 +100,7 @@ public class TesteAlunoDAO {
         assertNull(AlunoDAO.getAlunoByID(999));
     }
     
-       @Test
+    @Test
     void testConstrutorPrivadoAlunoDAO() throws Exception {
         Constructor<AlunoDAO> constructor = AlunoDAO.class.getDeclaredConstructor();
         assertTrue(Modifier.isPrivate(constructor.getModifiers()));
@@ -111,8 +111,15 @@ public class TesteAlunoDAO {
 
     @Test
     void testGetAlunoByIDSQLError() {
+        // Cria nova conexão
         Database.createConnection("jdbc:sqlite::memory:");
+
+        // Cria tabela errada propositalmente
         Database.executeCommand("CREATE TABLE Alunos (nome TEXT)");
-        assertNull(AlunoDAO.getAlunoByID(1));
+    
+        // Isso gera SQLException dentro de getAlunoByID
+        Aluno aluno = AlunoDAO.getAlunoByID(1);
+
+        assertNull(aluno);
     }
 }
