@@ -1,6 +1,7 @@
 package view;
 
 import dao.AlunoDAO;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
@@ -9,9 +10,8 @@ import javax.swing.JOptionPane;
  */
 public class CadastroAluno extends javax.swing.JFrame {
 
-     private static final Logger LOGGER = Logger.getLogger(CadastroAluno.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(CadastroAluno.class.getName());
 
-    
     /**
      * Inicializa a tela de cadastro e seus componentes gráficos.
      */
@@ -214,7 +214,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             } else {
                 idade = Integer.parseInt(this.c_idade.getText());
             }
-            
+
             if (this.c_curso.getText().length() < 2) {
                 throw new Mensagens("Curso deve conter ao menos 2 caracteres.");
             } else {
@@ -226,7 +226,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             } else {
                 fase = Integer.parseInt(this.c_fase.getText());
             }
-            
+
             if (this.c_CPFAluno.getText().length() != 14) {
                 throw new Mensagens("O CPF deve conter 11 digitos.");
             } else {
@@ -245,7 +245,9 @@ public class CadastroAluno extends javax.swing.JFrame {
                 this.c_CPFAluno.setText("");
             }
 
-            LOGGER.info(String.valueOf(AlunoDAO.getAlunos()));
+            if (LOGGER.isLoggable(Level.INFO)) {
+                LOGGER.info(String.valueOf(AlunoDAO.getAlunos()));
+            }
 
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
